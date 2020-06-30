@@ -1,4 +1,4 @@
-# hello-world
+# si2-vue
 
 ## Project setup
 ```
