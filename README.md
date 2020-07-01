@@ -1,4 +1,4 @@
-# si2-vue
+# SI2-Vue
 
 ## Project setup
 ```

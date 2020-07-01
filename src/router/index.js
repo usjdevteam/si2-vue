@@ -1,29 +1,57 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+//import store from '../store/index.js'
 
-Vue.use(VueRouter)
 
-const routes = [
-  {
+import WelcomeTestPage from '../components/WelcomeTestPage.vue';
+
+Vue.use(VueRouter);
+
+const routes = [{
     path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: WelcomeTestPage,
+    meta: {
+      requiresAuth: false
   }
-]
+}
+];
 
 const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes
-})
+    mode: 'history',
+    base: process.env.BASE_URL,
+    routes,
+});
 
-export default router
+// router.beforeEach((to, from, next) => {
+//     if (to.matched.some(record => record.meta.requiresAuth)) {
+//         if (store.getters.isLoggedIn) {
+//             next()
+//             return
+//         }
+//         next('/login')
+//     } else {
+//         next()
+//     }
+// })
+
+// router.beforeEach((to, from, next) => {
+
+
+//   if (to.matched.length > 0){ // CHECK IF THE LINK HAS A COMPONENT
+    
+//     if(to.matched.some(record => record.meta.requiresAuth)) {
+//       console.log(store.getters); 
+//       if (store.getters['session/isLoggedIn'] &&  store.getters['session/authStatus'] == 'success') {
+//         next()
+//         return
+//       }
+//       next('/') 
+//     }
+//     next()
+//   }else{
+//     next('/') 
+//   }
+
+// })
+
+export default router;
