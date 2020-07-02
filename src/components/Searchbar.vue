@@ -7,14 +7,14 @@
             hide-details
             prepend-inner-icon="search"
             label="Search"
-            class="Searchbar SearchbarSelector"
+            class="SearchBar SearchBarSelector"
           ></v-text-field>
 </template>
 
 
 <style scoped>
 
-    .Searchbar {
+    .SearchBar {
         background-color: #FFFFFF;
         border-radius: 9px;
         width: 253px;
@@ -23,7 +23,7 @@
         background-position-y: 15px;
     }
 
-    .SearchbarSelector {
+    .SearchBarSelector {
     background-color: #FFFFFF;
     border-radius: 9px;
     width: 253px;

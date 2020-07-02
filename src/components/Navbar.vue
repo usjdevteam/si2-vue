@@ -60,7 +60,7 @@
 
 
         <span>
-          <Searchbar />
+          <SearchBar />
         </span>
 
       <span v-show="this.$store.getters.isLoggedIn">{{this.$store.state.userName}}</span>
