@@ -3,13 +3,13 @@ import VueRouter from 'vue-router';
 //import store from '../store/index.js'
 
 
-import WelcomeTestPage from '../components/WelcomeTestPage.vue';
+import Navbar from '../components/Navbar.vue';
 
 Vue.use(VueRouter);
 
 const routes = [{
     path: '/',
-    component: WelcomeTestPage,
+    component: Navbar,
     meta: {
       requiresAuth: false
   }
