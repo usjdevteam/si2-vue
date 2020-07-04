@@ -1,25 +1,24 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+import Vue from "vue";
+import VueRouter from "vue-router";
 //import store from '../store/index.js'
 
-
-import WelcomeTestPage from '../components/WelcomeTestPage.vue';
+import WelcomeTestPage from "../components/WelcomeTestPage.vue";
 
 Vue.use(VueRouter);
 
-const routes = [{
-    path: '/',
+const routes = [
+  {
+    path: "/",
     component: WelcomeTestPage,
     meta: {
-      requiresAuth: false
-  }
-}
+      requiresAuth: false,
+    },
+  },
 ];
 
 const router = new VueRouter({
-    mode: 'history',
-    base: process.env.BASE_URL,
-    routes,
+  base: process.env.BASE_URL,
+  routes,
 });
 
 // router.beforeEach((to, from, next) => {
@@ -36,20 +35,19 @@ const router = new VueRouter({
 
 // router.beforeEach((to, from, next) => {
 
-
 //   if (to.matched.length > 0){ // CHECK IF THE LINK HAS A COMPONENT
-    
+
 //     if(to.matched.some(record => record.meta.requiresAuth)) {
-//       console.log(store.getters); 
+//       console.log(store.getters);
 //       if (store.getters['session/isLoggedIn'] &&  store.getters['session/authStatus'] == 'success') {
 //         next()
 //         return
 //       }
-//       next('/') 
+//       next('/')
 //     }
 //     next()
 //   }else{
-//     next('/') 
+//     next('/')
 //   }
 
 // })
