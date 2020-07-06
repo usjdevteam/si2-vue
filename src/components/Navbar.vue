@@ -1,94 +1,57 @@
 <template>
   <v-app id="inspire">
 
-    <v-navigation-drawer v-model="drawer" app >
-      <template>
-        <v-card
-          height="400"
-          width="256"
-          class="mx-auto"
-        >
-          <v-navigation-drawer permanent>
-            <v-list-item>
-              <v-list-item-content>
-                <v-list-item-title class="title">
-                  Application
-                </v-list-item-title>
-                <v-list-item-subtitle>
-                  subtext
-                </v-list-item-subtitle>
-              </v-list-item-content>
-            </v-list-item>
+    <v-app-bar app color="#031250">
+      
+        <v-toolbar-title>
+          <span class="usj-SI2-Title-Header">SI2</span>
+        </v-toolbar-title>
 
-            <v-divider></v-divider>
-
-            <v-list
-              dense
-              nav
-            >
-              <v-list-item
-                v-for="item in items"
-                :key="item.title"
-                link
-              >
-                <v-list-item-icon>
-                  <v-icon>{{ item.icon }}</v-icon>
-                </v-list-item-icon>
-
-                <v-list-item-content>
-                  <v-list-item-title>{{ item.title }}</v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-            </v-list>
-          </v-navigation-drawer>
-        </v-card>
-      </template>
-    </v-navigation-drawer>
-
-    <v-app-bar app color="indigo" dark>
-      <span color="white">
-        <v-app-bar-nav-icon @click.stop="drawer = !drawer">
-          <v-icon>mdi-menu</v-icon>
-        </v-app-bar-nav-icon>
-      </span>
-
-      <v-toolbar-title class="grey--text">
-        <span class="SI2Title SI2TitleSelector">SI2</span>
-      </v-toolbar-title>
-
-      <v-spacer></v-spacer>
-
+        <v-spacer></v-spacer>
 
         <span>
           <SearchBar />
         </span>
 
-      <span v-show="this.$store.getters.isLoggedIn">{{this.$store.state.userName}}</span>
-      <router-link v-if="!this.$store.getters.isLoggedIn" to="/account/signin" tag="button">
+        <span>
+          <v-img class="usj-question-Header"
+                 :src="require('@/assets/images/questionmark.png')"
+          ></v-img>
+        </span>
+
+
+        <span>
+          <v-menu left bottom>
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn icon v-bind="attrs" v-on="on">
+                  <v-avatar >
+                      <v-img
+                          class="usj-avatar-Header"
+                          :src="require('@/assets/images/avatar.png')"
+                      ></v-img>
+                    </v-avatar>
+                </v-btn>
+              </template>
+
+              <v-list>
+                <v-list-item
+                  v-for="n in 5"
+                  :key="n"
+                  @click="() => {}"
+                >
+                <v-list-item-title>Option {{ n }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
+        </span>
+<!--
+      <router-link to="/account/signin" tag="button">
         <v-btn text class="white">
           <span class="text-none">Sign In</span>
           <v-icon>exit_to_app</v-icon>
         </v-btn>
       </router-link>
-      <router-link v-if="!this.$store.getters.isLoggedIn" to="/account/signup" tag="button">
-        <v-btn text class="white">
-          <span class="text-none">Sign Up</span>
-          <v-icon>add</v-icon>
-        </v-btn>
-      </router-link>
-      <router-link v-if="this.$store.getters.isLoggedIn" to="/home" tag="button">
-        <v-btn text class="white" @click="logout">
-          <span class="text-none">Sign Out</span>
-          <v-icon>power_settings_new</v-icon>
-        </v-btn>
-      </router-link>
-
-      <v-btn icon href="https://www.facebook.com/usj.edu.lb/videos/890474227787534/">
-        <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'facebook' }" />
-      </v-btn>
-      <v-btn icon href="https://twitter.com/usjliban?lang=en">
-        <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'twitter' }" />
-      </v-btn>
+-->
   </v-app-bar>
 
   <v-main>
@@ -110,7 +73,7 @@
                   target="_blank"
                   v-on="on"
                 >
-                  <v-icon large>mdi-code-tags</v-icon>
+                  <!-- <v-icon large>mdi-code-tags</v-icon> -->
                 </v-btn>
               </template>
               <span>Source</span>
@@ -120,6 +83,10 @@
       </v-container>
     </v-main>
 
+    
+    <!-- Side Menu -->
+    <SideMenu />
+        
 
   </v-app>
 </template>
@@ -127,9 +94,10 @@
 <script>
 
 import SearchBar from '../components/SearchBar.vue';
+import SideMenu from '../components/SideMenu.vue';
 
 export default {
-  components: { SearchBar },
+  components: { SearchBar, SideMenu },
   data() {
     return {
       drawer: false
@@ -147,25 +115,37 @@ export default {
 </script> 
 
 <style scoped>
-   .SI2Title {
-      background: #C00000;
-      border-radius: 5px;
-      size: 25px;
-      text-align: left;
-      width: 38px;
-      height: 34px;
-      font-weight: 700;
-      word-spacing: 32px;
-      margin-right: 23px;
-      margin-bottom: 9px;
+   .usj-Header {
+     color: #031250 !important;
    }
 
-   .SI2TitleSelector {
+   .usj-SI2-Title-Header {
+      background: #C00000;
       color: #FFFFFF;
+      border-radius: 8px;
+      width: 53px;
+      height: 43px;
+      background-position-x: 23px;
+      background-position-y: 9px;
+      font-size: 30px;
+      font-weight: 700;
       font-family: Playfair Display SC;
-      font-size: 25px;
       line-height: 32px;
-      text-align: left;
+      word-spacing: 32px;
+     
+   }
+
+    .usj-avatar-Header {
+      width: 48px;
+      height: 48px;
+      background-position-x: 1210px;
+      background-position-y: 9px;
     }
 
+    .usj-question-Header {
+       width: 41px;
+      height: 41px;
+      background-position-x: 1148px;
+      background-position-y: 11px;
+    }
 </style>
