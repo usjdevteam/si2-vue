@@ -3,8 +3,25 @@ import App from './App.vue'
 
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
+import 'material-design-icons-iconfont/dist/material-design-icons.css'
 
-Vue.use(Vuetify)
+import Vuelidate from 'vuelidate'
+
+  
+Vue.use(Vuetify, {
+  iconfont: 'md'
+})
+
+
+
+Vue.use(Vuelidate)
+
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+
+Vue.use(BootstrapVue)
+// Optionally install the BootstrapVue icon components plugin
+Vue.use(IconsPlugin)
+
 
 import router from "./router"
 import store from "./store"

@@ -38,9 +38,9 @@ export default {
   },
   actions: {
       login({ commit }, user) {
+
           return new Promise((resolve, reject) => {
               commit('auth_request')
-              alert(process.env.VUE_APP_SERVER_API + '/account/login');
               axios({ url: process.env.VUE_APP_SERVER_API + '/account/login', data: user, method: 'POST' })
                   .then(resp => {
                       const token = resp.data.token

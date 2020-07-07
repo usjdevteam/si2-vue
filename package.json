@@ -15,9 +15,11 @@
     "@fortawesome/vue-fontawesome": "^0.1.10",
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
+    "lato-font": "^3.0.0",
     "material-design-icons-iconfont": "^5.0.1",
     "vue": "^2.6.11",
     "vue-router": "^3.3.4",
+    "vuelidate": "^0.7.5",
     "vuetify": "^2.3.3",
     "vuex": "^3.5.1"
   },

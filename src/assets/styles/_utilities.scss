@@ -1,0 +1,48 @@
+/* Utilities */
+
+/* ----------------- width ----------------- 
+/* -------------------------------------------- */
+.width-80-p{
+    width: 80%;
+}
+
+/* ----------------- paddings ----------------- 
+/* -------------------------------------------- */
+.no-padding{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+.no-padding-top{
+    padding-top: 0 !important;
+}
+
+.padding-middle-10-p{
+    padding-left: 10% !important;
+    padding-right: 10% !important;
+}
+.padding-top-5-p{
+    padding-top: 5% !important;
+}
+.margin-top-2-p{
+    margin-top: 2%!important;
+}
+
+/* ----------------- HR ----------------- 
+/* -------------------------------------------- */
+hr.u-hr{
+    width: 25%;
+    height: 2px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+hr.u-hr-red{
+    background: $red;
+    border :$red;
+}
+
+/* ----------------- Anchors ----------------- 
+/* -------------------------------------------- */
+a.u-link{
+    color: $blue !important;
+    font-family: $type-1 !important;
+}

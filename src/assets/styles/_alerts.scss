@@ -1,0 +1,18 @@
+/* Alerts */
+
+.u-alert{
+    .v-alert__content{
+        font-family: $type-1 !important;
+    }
+}
+
+.u-alert_danger{
+    color : $red;
+}
+.u-alert-danger-outlined{
+   background: $red-backgorund  !important;
+    border-color: $red !important;
+    .v-alert__content{
+        color : $red !important;
+    }
+}
