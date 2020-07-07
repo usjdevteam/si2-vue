@@ -1,14 +1,25 @@
-import 'material-design-icons-iconfont/dist/material-design-icons.css'
-import '@mdi/font/css/materialdesignicons.css'
 import Vue from 'vue'
 import App from './App.vue'
 
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
+import 'material-design-icons-iconfont/dist/material-design-icons.css'
+import '@mdi/font/css/materialdesignicons.css'
 
+import Vuelidate from 'vuelidate'
+
+  
 Vue.use(Vuetify, {
   iconfont: 'mdi'
 })
+
+Vue.use(Vuelidate)
+
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+
+Vue.use(BootstrapVue)
+// Optionally install the BootstrapVue icon components plugin
+Vue.use(IconsPlugin)
 
 export default new Vuetify({
   icons: {

@@ -1,0 +1,60 @@
+@import "../style.scss";
+
+.u-header {
+    
+    line-height: 1rem;
+
+    .u-title-background-danger {
+      width: 5.7vw !important;
+      background: $red !important;
+      font-style: $white !important;
+      font-size: 1.85rem !important;
+      border-radius: 0.68rem !important;
+      text-align:top !important;
+      height: 70% !important;
+      display: inline-block !important;
+    }
+
+    .u-title-first {
+      color: $white !important;
+      font-weight: 38 !important;
+      font-family: $type-1 !important;
+      font-size: 2rem !important;
+      text-align: left;
+      margin-left: 0vw !important;
+      margin-right: auto !important;
+      margin-top: 2.5vh !important;
+      margin-bottom: auto !important;
+    }
+
+    .u-title-second {
+      color: $white !important;
+      font-weight: 33 !important;
+      font-family: $type-1 !important;
+      font-size: 1.35rem !important;
+    }
+
+    .u-searchBar {
+      background-color: $white !important;
+      border-radius: 0.68rem !important;
+      margin-right: 1.2vw !important;
+      margin-top: 1.5vw !important;
+      margin-bottom: 1.5vw !important;
+      height: 70% !important;
+      color: $white !important;
+    }
+
+
+    .u-question {
+      width: 3.5vw !important;
+      margin-right: 1.2vw !important;
+      font-size: 2rem !important;
+      align-content: center !important;
+    }
+
+    .u-avatar {
+      width: 3.5vw !important;
+    }
+}
+
+   

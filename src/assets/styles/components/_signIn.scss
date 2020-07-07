@@ -1,0 +1,41 @@
+@import "../style.scss";
+
+
+.usj-hr-line{
+    background: $red;
+    width: 25%;
+    height: 2px;
+    border :$red;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+
+.cercle{
+    width: 35vw;
+    height: 35vw;
+    border-radius: 50%;
+    background:rgba(223, 128, 128, 0.22);
+    padding:5%;
+    align-content: center !important;
+    vertical-align: middle !important;
+}
+
+#img-login{
+    height: 90%;
+    width: 90%;
+    margin: 5%;
+  } 
+  
+.width-80-p{
+    width: 80%;
+}
+.usj-button-primary{
+    background-color: $blue !important;
+    color: white !important;
+    border-radius: 20px;
+    height: 50px !important;
+    font-size: 23px !important;
+    line-height: 62px !important;
+    text-align: center;
+    text-transform: capitalize;
+}

@@ -1,0 +1,44 @@
+/*  Buttons */
+.u-btn{
+    .v-btn__content{
+        text-transform: capitalize !important;
+        font-weight: 600 !important;
+        font-family: $type-1 !important;
+    }
+    box-shadow: none;
+}
+
+.u-btn-sm {
+    font-size: $btn-font-size-sm !important;
+  }
+
+.u-btn-lg {
+    font-size: $btn-font-size-lg !important;
+    padding: $btn-padding-y-lg $btn-padding-x-lg !important;
+    .v-btn__content{
+        font-size: $btn-font-size-lg !important;
+    }
+}
+
+.u-btn-xs {
+    padding: $btn-padding-y-xs $btn-padding-x-xs !important;
+    font-size: $btn-font-size-xs !important;
+}
+
+// &.u-btn-danger,
+// &.u-btn-info,
+// &.u-btn-teal,
+// &.u-btn-warning {
+// color: $white;
+// }
+
+//Primary Button
+.u-btn-outlined-primary{
+    background: transparent !important;
+    border: 2px solid $blue;
+    border-radius: 5px;
+
+    .v-btn__content{
+       color: $blue !important;
+    }
+}

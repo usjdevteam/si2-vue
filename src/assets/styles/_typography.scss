@@ -1,0 +1,62 @@
+/* Typography */
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $type-1 !important;
+}
+
+p {
+    font-size: $default-font-size;
+  }
+  
+  .h1,
+  h1 {
+    font-size: 2.19rem;
+    color: $blue;
+  }
+  
+  .h2,
+  h2 {
+    font-size: 1.88rem;
+  }
+  
+  .h3,
+  h3 {
+    font-size: 1.56rem;
+  }
+  
+  .h4,
+  h4 {
+    font-size: 1.13rem;
+  }
+  
+  .h5,
+  h5 {
+    font-size: 1rem;
+  }
+  
+  .h6,
+  h6 {
+    font-size: 0.9375rem;
+  }
+  
+  p {
+    font-size: 0.88rem;
+  }
+
+.text-bold{
+    font-weight: bold !important;
+}
+.text-capitalize{
+    text-transform: capitalize !important;
+}
