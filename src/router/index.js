@@ -34,13 +34,13 @@ const routes = [
                 requiresAuth: true
               },
         },
-        // {
-        //   path: 'institutions',
-        //   name: 'Institutions',
-        //   component: InstitutionIndex,
-        //   meta: { 
-        //       requiresAuth: true
-        //     },
+      //   {
+      //     path: 'institutions',
+      //     name: 'Institutions',
+      //     component: InstitutionIndex,
+      //     meta: { 
+      //         requiresAuth: true
+      //       },
       // }
     ]
 }
