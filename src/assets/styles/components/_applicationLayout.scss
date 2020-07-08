@@ -1,9 +1,13 @@
 @import "../style.scss";
 
 .u-sideMenu {
-    width: 22vw !important;
+    width: 16vw !important;
     height: 100% !important;
     color: $blue !important;
     border-color: #CCD3DC !important;
     background-color: $white !important;
+
+    .v-navigation-drawer__content {
+        overflow-y: hidden !important;
+    } 
 }

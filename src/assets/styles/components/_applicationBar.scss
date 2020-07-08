@@ -5,14 +5,13 @@
     line-height: 1rem;
 
     .u-title-background-danger {
-      width: 5.7vw !important;
+      width: 3.9vw !important;
       background: $red !important;
       font-style: $white !important;
-      font-size: 1.85rem !important;
-      border-radius: 0.68rem !important;
+      font-size: 1.35rem !important;
+      border-radius: 0.4rem !important;
       text-align:top !important;
       height: 70% !important;
-      display: inline-block !important;
     }
 
     .u-title-first {
@@ -23,7 +22,7 @@
       text-align: left;
       margin-left: 0vw !important;
       margin-right: auto !important;
-      margin-top: 2.5vh !important;
+      margin-top: 1.5vh !important;
       margin-bottom: auto !important;
     }
 
@@ -36,14 +35,16 @@
 
     .u-searchBar {
       background-color: $white !important;
-      border-radius: 0.68rem !important;
+      border-radius: 0.4rem !important;
       margin-right: 1.2vw !important;
       margin-top: 1.5vw !important;
       margin-bottom: 1.5vw !important;
-      height: 70% !important;
+      height: 50% !important;
       color: $white !important;
+      .v-input__control {
+        min-height: inherit !important;
+      }
     }
-
 
     .u-question {
       width: 3.5vw !important;

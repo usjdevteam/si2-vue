@@ -1,5 +1,15 @@
 @import "../style.scss";
 
+.u-sideMenu-Panel {
+    border-right-style: inset !important;
+    border-right-width: thin !important;
+}
+
+.u-sideMenu-panelMargin {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+
 .u-sideMenu-avatar {
     color: $white !important;
     border-color: #CCD3DC !important;
@@ -14,41 +24,49 @@
 .u-sideMenu-profileText {
     color: #47525E !important;
     font-family: $type-1 !important;
-    font-size: 19px !important;
+    font-size: 16px !important;
     text-align: center !important;
-    margin-bottom: 2.3rem !important;
+    margin-bottom: 1.8rem !important;
 }
 
 .u-sideMenu-home {
-    height: 4.5vh !important;
+    height: 4.7vh !important;
+    width: 100% !important;
+    padding-left: 1.8vw !important;
 }
 
 .u-sideMenu-homeTitle {
     color: $blue !important;
     font-family: $type-1 !important;
-    font-size: 20px !important;
+    font-size: 17px !important;
     text-align: left !important;
-    padding: 5% !important;
 }
 
 .u-sideMenu-expansion {
-    height: 4.5vh !important;
-    margin-left: -0.95vw !important;
-    margin-right: auto !important;
+    height: 4.7vh !important;
+    line-height: 1.5 !important;
 }
 
 .u-sideMenu-expansionTitle {
     color: $blue !important;
     font-family: $type-1 !important;
-    font-size: 20px !important;
+    font-size: 17px !important;
     text-align: left !important;
-    padding-left: 0vw !important;
+    width: 100% !important;
 }
 
 .u-sideMenu-subItem {
     text-align: left !important;
     font-family: $type-1 !important;
-    font-size: 18px !important;
+    font-size: 15px !important;
     margin-left: 3.1vw !important;
+    color: $blue !important;
+}
 
+.u-sideMenu-avatar-specialMargin {
+    height: 85% !important;
+}
+
+.u-sideMenu-avatar-homeIcon {
+    width: 17% !important;
 }
