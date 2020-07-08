@@ -1,8 +1,13 @@
-<template>  
+<template>
+    <v-navigation-drawer
+      v-model="drawer"
+      app
+      clipped
 
+    >
     <v-list-item-group v-model="selected" active-class="#031250">
-
-        <v-list-item two-line>
+        
+        <v-list-item one-line>
             <v-list-item-content class="u-sideMenu-avatar">
                 <v-list-item-title class="u-sideMenu-profile">
                     <v-img
@@ -16,9 +21,65 @@
 
         <v-divider></v-divider>
 
-        <v-list>
 
-        <v-expansion-panels :accordion="accordion" class="u-sideMenu-Panel">
+
+    <!-- <v-list
+        dense
+        nav
+      >
+        <v-list-item
+          link
+        >
+          <v-list-item-icon>
+                                    <v-list-item-avatar>
+                            <v-img contain
+                                :src="require('@/assets/images/cohorts.png')"
+                            ></v-img>
+                        </v-list-item-avatar>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title>HOME</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-divider></v-divider>
+        
+        
+        <v-list-item>
+            
+
+          <v-list-group
+
+          >
+            <template v-slot:activator>
+              <v-list-item-content>
+                <v-list-item-title>
+                    tezxt
+                </v-list-item-title>
+              </v-list-item-content>
+            </template>
+            <v-list-item
+             
+              link
+            >
+              <v-list-item-action>
+                <v-icon>s</v-icon>
+              </v-list-item-action>
+              <v-list-item-content>
+                <v-list-item-title>
+                vxvv
+                </v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list-group>
+
+
+        </v-list-item>
+
+
+      </v-list> -->
+      <v-list>
+          <v-expansion-panels :accordion="accordion" class="u-sideMenu-Panel">
 
             <v-list-item link class="u-sideMenu-home">
 
@@ -341,10 +402,61 @@
                     </v-expansion-panel-content>
                     </v-expansion-panel>
         </v-expansion-panels>
+      </v-list>
 
-        </v-list>
+
     </v-list-item-group>
+      <!-- <v-list
+        dense
+        class="grey lighten-4"
+      >
+        <template v-for="(item, i) in items">
+          <v-row
+            v-if="item.heading"
+            :key="i"
+            align="center"
+          >
+            <v-col cols="6">
+              <v-subheader v-if="item.heading">
+                {{ item.heading }}
+              </v-subheader>
+            </v-col>
+            <v-col
+              cols="6"
+              class="text-right"
+            >
+              <v-btn
+                small
+                text
+              >edit</v-btn>
+            </v-col>
+          </v-row>
+          <v-divider
+            v-else-if="item.divider"
+            :key="i"
+            dark
+            class="my-4"
+          ></v-divider>
+          <v-list-item
+            v-else
+            :key="i"
+            link
+          >
+            <v-list-item-action>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title class="grey--text">
+                {{ item.text }}
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </template>
+      </v-list> -->
+    </v-navigation-drawer>
 </template>
+
+
 
 <script src="./ApplicationSideMenu.js"> </script>
 

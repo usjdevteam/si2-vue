@@ -1,9 +1,8 @@
 export default {
     name: 'ApplicationBar',
-    data() {
-      return {
-      }
-    },
+    data: () => ({
+      drawer: null,
+    }),
   
     methods: {
       logout() {

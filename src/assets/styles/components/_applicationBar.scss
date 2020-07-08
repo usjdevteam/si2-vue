@@ -5,13 +5,14 @@
     line-height: 1rem;
 
     .u-title-background-danger {
-      width: 3.9vw !important;
+      padding-right: 1%;
       background: $red !important;
       font-style: $white !important;
       font-size: 1.35rem !important;
       border-radius: 0.4rem !important;
       text-align:top !important;
       height: 70% !important;
+      cursor: pointer;
     }
 
     .u-title-first {
