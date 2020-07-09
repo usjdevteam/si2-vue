@@ -1,0 +1,10 @@
+@import "../style.scss";
+
+.v-data-footer{
+    display: none !important;
+}
+.pagination-number{
+    font-family: $type-1 !important;
+    margin-left: 2%;
+    cursor: pointer;
+}

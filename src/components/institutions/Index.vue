@@ -16,32 +16,14 @@
                     <div clas="col-md-12">
                         <!-- SEARCH -->
                         <div class="row">
-                            <!-- <div class="col-md-4 offset-md-5">
-
-                                <v-text-field
-                                label=""
-                                :type="'text'"
-                                color ="#031250"
-                                dense
-                                outlined
-                                class="pull-right"
-                                ></v-text-field>
-                            </div>
-                            <div class="col-md-3">
-                                <v-btn class="ma-2 u-btn u-btn-outlined-primary pull-right">Search Institutions</v-btn>
-                            </div> -->
-
-                            <!-- <v-text-field  color ="#031250" dense outlined class="col-md-3 u-input-super-dense pull-right"></v-text-field> -->
-
                             
-                            
-                            <div class="col-md-2">
-                                <span>10 from x</span>
+                            <div class="col-md-2 padding-top-2-p" v-if="institutions.data.length > 0">
+                                <span class="lato dark-blue-color text-bold">{{getNumberString}}</span>
                             </div>
                             <v-spacer></v-spacer>
                             <div class="col-md-5 ">
                                 <form class="form-inline pull-right">
-                                    <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" v-model="institutionSearchText" >
+                                    <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" v-model="pageInstitutionOption.institutionSearchText" >
                                     <v-btn class="mb-2 u-btn u-btn-outlined-primary" @click="searchInstitution">Search Institutions</v-btn>
                                 </form>
                             </div>
@@ -51,16 +33,29 @@
                            <!-- SEARCH -->   
                         <v-data-table
                             :headers="headers"
-                            :items="institutions"
-                            :items-per-page="5"
+                            :items="institutions.data"
+                            :loading="loading"
+                            :items-per-page="institutions.pagination.pageSize"
                             class="u-table u-table-primary u-table-bordered-primary"
                         >
                         <template #item.full_address="{ item }">{{item.address.streetFr}} - {{item.address.cityFr}} - {{item.address.countryFr}}</template>
-                        <template #item.editRow> <font-awesome-icon icon="edit" size="lg" /></template>
-                        
+                        <template #item.editRow="{ item }"> <font-awesome-icon class="u-cursor" icon="edit" size="lg" @click="viewInstitution(item.id)" /></template>
                         </v-data-table>
-                        <div class="text-center pt-2">
-                            <v-pagination v-model="page" :length="pageCount"></v-pagination>
+                        <div class="col-md-12 pt-2 no-padding" v-if="institutions.data.length > 0">
+                            <div class="row">
+                            
+                                <div class="col-md-2">
+                                    <span class="lato dark-blue-color text-bold">{{getNumberString}}</span>
+                                </div>
+
+                                <v-spacer></v-spacer>
+                                <div class="col-md-5 ">
+                                    <div class="text-right">
+                                        <span class="dark-blue-color text-bold pagination-number" v-for="(n,index) in institutions.pagination.totalPages" :key="index" @click="paginate(n)">{{n}}</span>
+                                    </div>
+                                    
+                                </div>
+                            </div>
                         </div>
 
                     </div>
