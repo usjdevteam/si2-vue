@@ -1,0 +1,152 @@
+@import "../style.scss";
+
+.u-card-header {
+    background-color: rgba(229, 233, 242, 0.5);
+}
+
+.u-card-title {
+    font-style: $dark-blue !important;
+    font-family: $type-1 !important;
+    text-align: left;
+    font-size: 1.5rem !important;
+}
+
+.u-card-margin {
+    margin-top: 3% !important;
+}
+
+.u-card-code {
+    color: $light-gray !important;
+    font-family: $type-1 !important;
+    text-align: left !important;
+    font-size: 1rem !important;
+}
+
+.u-card-labelEmail {
+    text-align: left !important;
+    font-family: $type-1 !important;
+    color: $gray !important;
+    padding-right: 4rem !important;
+    padding-left: 1rem !important;
+    padding-top: 0.6rem !important;
+    vertical-align: center !important;
+    font-size: 1.2rem !important;
+}
+
+.u-card-label {
+    text-align: left !important;
+    font-family: $type-1 !important;
+    color: $gray !important;
+    padding-right: 3rem !important;
+    padding-left: 1rem !important;
+    padding-top: 0.6rem !important;
+    vertical-align: center !important;
+    font-size: 1.2rem !important
+}
+
+.u-card-labelArabic {
+    text-align: right !important;
+    font-family: $type-1 !important;
+    color: $gray !important;
+    padding-left: 3.5rem !important;
+    padding-right: 1rem !important;
+    padding-top: 0.6rem !important;
+    vertical-align: center !important;
+    font-size: 1.2rem !important;
+}
+
+.u-card-labelCountryArabic {
+    text-align: right !important;
+    font-family: $type-1 !important;
+    color: $gray !important;
+    padding-right: 3rem !important;
+    padding-top: 0.6rem !important;
+    vertical-align: center !important;
+    font-size: 1.2rem !important;
+}
+
+.u-card-labelPhone {
+    text-align: right !important;
+    font-family: $type-1 !important;
+    color: $gray !important;
+    padding-right: 3.5rem !important;
+    padding-left: 1rem !important;
+    padding-top: 0.6rem !important;
+    vertical-align: center !important;
+    font-size: 1.2rem !important;
+}
+
+.u-card-labelCity {
+    text-align: left !important;
+    font-family: $type-1 !important;
+    color: $gray !important;
+    padding-right: 5.2rem !important;
+    padding-left: 1rem !important;
+    padding-top: 0.6rem !important;
+    vertical-align: center !important;
+    font-size: 1.2rem !important;
+}
+
+.u-card-labelStreet {
+    text-align: left !important;
+    font-family: $type-1 !important;
+    color: $gray !important;
+    padding-right: 4.1rem !important;
+    padding-left: 1rem !important;
+    padding-top: 0.6rem !important;
+    vertical-align: center !important;
+    font-size: 1.2rem !important;
+}
+
+.u-card-labelFax {
+    text-align: left !important;
+    font-family: $type-1 !important;
+    color: $gray !important;
+    padding-right: 4.8rem !important;
+    padding-left: 1rem !important;
+    padding-top: 0.6rem !important;
+    vertical-align: center !important;
+    font-size: 1.2rem !important;
+}
+
+.u-card-labelLatitude {
+    text-align: right !important;
+    font-family: $type-1 !important;
+    color: $gray !important;
+    padding-right: 2.9rem !important;
+    padding-left: 1rem !important;
+    padding-top: 0.6rem !important;
+    vertical-align: center !important;
+    font-size: 1.2rem !important;
+}
+
+.u-card-labelLongitude {
+    text-align: right !important;
+    font-family: $type-1 !important;
+    color: $gray !important;
+    padding-right: 2.1rem !important;
+    padding-left: 1rem !important;
+    padding-top: 0.6rem !important;
+    vertical-align: center !important;
+    font-size: 1.2rem !important;
+
+}
+
+.u-spacing {
+    padding-right: 3rem !important;
+}
+
+.u-text-padding {
+    padding-right: 1.2rem !important;
+}
+
+.u-textCountry-padding {
+    padding-right: 1.5rem !important;
+}
+
+
+
+.u-header-text {
+    padding-left: 1.5rem !important;
+    padding-bottom: 2rem !important;
+}

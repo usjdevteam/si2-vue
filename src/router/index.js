@@ -5,8 +5,7 @@ import store from '../store/index.js'
 import SignIn from '../components/signIn/SignIn.vue';
 import Application from '../components/layout/ApplicationLayout.vue'
 import Home from '../components/home/Home.vue'
-//import InstitutionIndex from '../components/institutions/Index.vue'
-
+import AddInstitution from '../components/institutions/AddInstitution.vue'
 
 Vue.use(VueRouter);
 
@@ -23,7 +22,7 @@ const routes = [
     name : "Application",
     component : Application,
     meta: { 
-        requiresAuth: true
+        requiresAuth: false
       },
     children : [
         {
@@ -31,9 +30,17 @@ const routes = [
             name: 'Home',
             component: Home,
             meta: { 
-                requiresAuth: true
+                requiresAuth: false
               },
         },
+        {
+               path: 'addinstitution',
+               name: 'AddInstitution',
+               component: AddInstitution,
+               meta: { 
+                   requiresAuth: false
+                 },
+        }
       //   {
       //     path: 'institutions',
       //     name: 'Institutions',
@@ -47,7 +54,7 @@ const routes = [
 ];
 
 const router = new VueRouter({
-    //mode: 'history',
+    mode: 'history',
     base: process.env.BASE_URL,
     routes,
 });
