@@ -10,10 +10,10 @@
     color : $red;
 }
 .u-alert-danger-outlined{
-   background: $red-backgorund  !important;
-    border-color: $red !important;
+   background: $red-backgorund !important;
+    // border-color: $red !important;
+    border: 1px solid  $red !important;
     .v-alert__content{
         color : $red !important;
     }
 }
-

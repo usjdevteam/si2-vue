@@ -2,7 +2,7 @@
 .u-btn{
     .v-btn__content{
         text-transform: capitalize !important;
-        font-weight: 500 !important;
+        font-weight: 500;
         font-family: $type-1 !important;
     }
     box-shadow: none;
@@ -40,6 +40,7 @@
 
     .v-btn__content{
        color: $blue !important;
+       font-weight: 600 !important;
     }
 }
 
