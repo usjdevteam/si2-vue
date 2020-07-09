@@ -14,7 +14,7 @@
 
       <span>
           <v-text-field
-            v-model="search"
+           
             clearable
             flat
             solo
@@ -63,7 +63,7 @@
       clipped
 
     >
-    <v-list-item-group v-model="selected" active-class="#031250">
+    <v-list-item-group active-class="#031250">
         
         <v-list-item one-line>
             <v-list-item-content class="u-sideMenu-avatar">
@@ -80,12 +80,12 @@
         <v-divider></v-divider>
 
       <v-list>
-          <v-expansion-panels :accordion="accordion" class="u-sideMenu-Panel">
+          <v-expansion-panels class="u-sideMenu-Panel">
 
             <v-list-item link class="u-sideMenu-home">
 
             <v-list-item-avatar>
-                <font-awesome-icon class="u-sideMenu-avatar-specialMargin" icon="user-secret" />
+                <!-- <font-awesome-icon class="u-sideMenu-avatar-specialMargin"/> -->
                      <v-img class="u-sideMenu-avatar-specialMargin"
                         :src="require('@/assets/images/home.png')"
                      ></v-img>

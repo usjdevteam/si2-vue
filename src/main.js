@@ -12,6 +12,15 @@ import 'material-design-icons-iconfont/dist/material-design-icons.css'
 import '@mdi/font/css/materialdesignicons.css'
 import Vuelidate from 'vuelidate'
 
+
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faEdit } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+Vue.component('font-awesome-icon', FontAwesomeIcon)
+library.add(faEdit)
+
+
+
 Vue.use(Vuetify, {
   iconfont: 'mdi'
 })
@@ -45,7 +54,6 @@ if (token) {
 }
 
 
-console.log(process.env.VUE_APP_SERVER_API)
 
 new Vue({
   render: h => h(App),

@@ -43,7 +43,7 @@ export default {
               commit('auth_request')
               axios({ url: process.env.VUE_APP_SERVER_API + '/account/login', data: user, method: 'POST' })
                   .then(resp => {
-                      const token = resp.data.token
+                      const token = "Bearer " + resp.data.token
                       const user = resp.data.user
                       localStorage.setItem('token', token)
                       axios.defaults.headers.common['Authorization'] = token
