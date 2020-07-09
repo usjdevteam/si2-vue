@@ -1,31 +1,33 @@
 import Vue from 'vue'
 import App from './App.vue'
 
+import router from "./router"
+import store from "./store"
+import Axios from 'axios'
+
+
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
-
+import '@mdi/font/css/materialdesignicons.css'
 import Vuelidate from 'vuelidate'
 
-  
 Vue.use(Vuetify, {
-  iconfont: 'md'
+  iconfont: 'mdi'
+})
+
+Vue.use(Vuelidate)
+
+
+
+export default new Vuetify({
+  icons: {
+    iconfont: 'mdiSvg', // 'mdi' || 'mdiSvg' || 'md' || 'fa' || 'fa4' || 'faSvg'
+  },
 })
 
 
 
-Vue.use(Vuelidate)
-
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
-
-Vue.use(BootstrapVue)
-// Optionally install the BootstrapVue icon components plugin
-Vue.use(IconsPlugin)
-
-
-import router from "./router"
-import store from "./store"
-import Axios from 'axios'
 
 Vue.config.productionTip = false
 

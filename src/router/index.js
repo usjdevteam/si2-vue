@@ -5,7 +5,6 @@ import store from '../store/index.js'
 import SignIn from '../components/signIn/SignIn.vue';
 import Application from '../components/layout/ApplicationLayout.vue'
 import Home from '../components/home/Home.vue'
-//import InstitutionIndex from '../components/institutions/Index.vue'
 
 
 Vue.use(VueRouter);
@@ -33,21 +32,13 @@ const routes = [
             meta: { 
                 requiresAuth: true
               },
-        },
-      //   {
-      //     path: 'institutions',
-      //     name: 'Institutions',
-      //     component: InstitutionIndex,
-      //     meta: { 
-      //         requiresAuth: true
-      //       },
-      // }
+        }
     ]
 }
 ];
 
 const router = new VueRouter({
-    //mode: 'history',
+    mode: 'history',
     base: process.env.BASE_URL,
     routes,
 });
@@ -59,7 +50,8 @@ router.beforeEach((to, from, next) => {
   if (to.matched.length > 0){ // CHECK IF THE LINK HAS A COMPONENT
     
     if(to.matched.some(record => record.meta.requiresAuth)) {
-      if (store.getters['session/isLoggedIn'] &&  store.getters['session/authStatus'] == 'success') {
+      //if (store.getters['session/isLoggedIn'] &&  store.getters['session/authStatus'] == 'success') {
+      if (store.getters['session/isLoggedIn']) {
         next()
         return
       }
