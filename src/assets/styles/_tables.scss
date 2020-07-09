@@ -1,0 +1,34 @@
+.u-table{
+    .v-data-table__wrapper table{
+        *{
+            font-family: $type-1 !important;
+        }
+    }
+}
+
+.u-table-primary{
+    .v-data-table__wrapper table{
+        thead tr th{
+            line-height: 1rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: $dark-blue !important;
+        }
+        tbody tr{
+            border-bottom-color: $white-gray !important;
+            
+            td{
+                color: $light-gray !important;
+                line-height: 0.7rem;
+                font-size: 0.7rem;
+                text-align: left;
+                border-bottom-color: $white-gray !important;
+            }
+        }
+
+    }
+}
+
+.u-table-bordered-primary{
+    border : 2px solid $white-gray;
+}

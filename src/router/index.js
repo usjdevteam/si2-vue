@@ -6,6 +6,7 @@ import SignIn from '../components/signIn/SignIn.vue';
 import Application from '../components/layout/ApplicationLayout.vue'
 import Home from '../components/home/Home.vue'
 
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -21,7 +22,7 @@ const routes = [
     name : "Application",
     component : Application,
     meta: { 
-        requiresAuth: false   
+        requiresAuth: true
       },
     children : [
         {
@@ -29,7 +30,7 @@ const routes = [
             name: 'Home',
             component: Home,
             meta: { 
-                requiresAuth: false
+                requiresAuth: true
               },
         }
     ]
@@ -49,8 +50,8 @@ router.beforeEach((to, from, next) => {
   if (to.matched.length > 0){ // CHECK IF THE LINK HAS A COMPONENT
     
     if(to.matched.some(record => record.meta.requiresAuth)) {
-      // console.log(store.getters); 
-      if (store.getters['session/isLoggedIn'] &&  store.getters['session/authStatus'] == 'success') {
+      //if (store.getters['session/isLoggedIn'] &&  store.getters['session/authStatus'] == 'success') {
+      if (store.getters['session/isLoggedIn']) {
         next()
         return
       }

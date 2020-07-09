@@ -6,9 +6,14 @@
     }
 }
 
-.alert_danger{
+.u-alert_danger{
     color : $red;
 }
-// .alert-danger-outlined{
+.u-alert-danger-outlined{
+   background: $red-backgorund  !important;
+    border-color: $red !important;
+    .v-alert__content{
+        color : $red !important;
+    }
+}
 
-// }

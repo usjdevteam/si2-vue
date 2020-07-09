@@ -63,28 +63,29 @@
 
 
                     <v-alert
-                        text
-                        class="width-80-p alert-danger-outlined"
+                        v-if="formLoginData.successLogin == false"
+                        class="width-80-p u-alert u-alert-danger-outlined"
                         outlined
                         dense
                         
                         >
-                        <!-- v-if="formLoginData.successLogin == false" -->
                         <strong>Incorrect email/password</strong>
                     </v-alert>
 
                     <div class="col-md-12 no-padding">
-                        <v-btn text large class="usj-color-primary text-capitalize">Forgot password?</v-btn>
-                        </div>
-
-                    <v-btn
-                    class="mr-4 usj-button-primary width-80-p"
-                    @click="signIn" 
-                    >
-                    Sign in
-                    </v-btn>
-
+                        <!-- <v-btn text large class="usj-color-primary text-capitalize">Forgot password?</v-btn> -->
+                        <a class="u-link">Forgot password?</a>
+                    </div>
                     
+                    <div class="col-md-12 no-padding">
+                        <v-btn large
+                        class="mr-4 u-btn u-btn-lg u-btn-rounded-primary width-80-p"
+                        @click="signIn" 
+                        >
+                        Sign in
+                        </v-btn>
+                    </div>
+
 
                 </v-form>
             
