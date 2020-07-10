@@ -4,7 +4,7 @@ import { mapState } from 'vuex';
 
 export default {
   name: 'ViewInstitution',
-  props: {'iinstitutionid': String},
+  props: {'institutionid': String},
   data: () => ({
 
   }),
