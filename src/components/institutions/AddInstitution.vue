@@ -325,11 +325,20 @@
                                     </v-row>
 
                                     <v-row>
-                                      <!-- <template> api of google name it map, and give it the lat and long
-                                            <gmaps-map>
-                                                <gmaps-marker :position="{ lat: -27, lng: 153 }" />
-                                            </gmaps-map>
-                                        </template>-->
+                                         <span class="u-card-labelMap">
+                                            Map <br/>Location 
+                                        </span>
+
+                                        <div class="mapouter">
+                                        <div class="gmap_canvas"   
+                                            :marker="{ lat: formAddInstitution.latitude, lng: formAddInstitution.longitude }">
+                                            <iframe width="100%" height="100%"
+                                            id="gmap_canvas" 
+                                            src="https://maps.google.com/maps?q=lebanon&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+                                            frameborder="0" scrolling="no" 
+                                            marginheight="0" marginwidth="0"></iframe>
+                                            </div>
+                                    </div>
                                     </v-row>
 
                                 </v-card-text>
@@ -340,17 +349,6 @@
                         </v-card>
                     </div>
                     <!-- -->
-
-                    <div class="mapouter">
-                        <div class="gmap"  
-                        :marker="{ lat: formAddInstitution.latitude, lng: formAddInstitution.longitude }">
-                            <iframe width="600" height="500" 
-                            id="gmap_canvas" 
-                            src="https://maps.google.com/maps?q=lebanon&t=&z=13&ie=UTF8&iwloc=&output=embed" 
-                            frameborder="0" scrolling="no" 
-                            marginheight="0" marginwidth="0"></iframe>
-                            </div>
-                    </div>
 
                     <div class="u-card-margin">
                         <v-card

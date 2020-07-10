@@ -132,6 +132,17 @@
 
 }
 
+.u-card-labelMap {
+    text-align: left !important;
+    font-family: $type-1 !important;
+    color: $gray !important;
+    padding-left: 1rem !important;
+    vertical-align: center !important;
+    font-size: 1.2rem !important;
+    padding-top: 20% !important;
+    padding-right: 2.8rem !important;
+}
+
 .u-spacing {
     padding-right: 3rem !important;
 }
@@ -152,3 +163,6 @@
     padding-left: 1.5rem !important;
     padding-bottom: 2rem !important;
 }
+
+.mapouter{position:relative;text-align:right;height:500;width:600;}
+.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}
