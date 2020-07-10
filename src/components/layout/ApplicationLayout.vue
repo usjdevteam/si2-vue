@@ -112,7 +112,7 @@
                         </v-list-item-avatar>
 
                         
-                        <v-list-item-title class="u-sideMenu-expansionTitle">Institutions</v-list-item-title>
+                        <v-list-item-title class="u-sideMenu-expansionTitle" >Institutions</v-list-item-title>
 
                     </v-expansion-panel-header>
                     <v-expansion-panel-content>
@@ -122,7 +122,7 @@
                         
 
                         <v-list-item-content>
-                            <v-list-item-title class="u-sideMenu-subItem">All Institutions</v-list-item-title>
+                            <v-list-item-title class="u-sideMenu-subItem" @click="goTo('institutions')">All Institutions</v-list-item-title>
                         </v-list-item-content>
                         </v-list-item>
                     

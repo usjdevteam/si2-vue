@@ -7,11 +7,11 @@ export default {
         institutionsObject : {
             data : [],
             pagination : {}
-        },
-        institutionObject : {}
+        }
   },
   mutations: {
     getInstitutions(state,response){
+
         state.institutionsObject.data = response.data;
         state.institutionsObject.pagination = JSON.parse(response.headers['x-pagination']);
         state.institutionsObject.pagination.previouspage = state.institutionsObject.pagination.currentPage -1;
@@ -44,6 +44,7 @@ export default {
                 })
         })
     },
+
     getInstitutionById({ commit }, institutionId ) {
                            
         return new Promise((resolve, reject) => {
@@ -60,11 +61,10 @@ export default {
         })
     }
     
-    
   },
   getters: {
 
   }
-        
-
 }
+
+
