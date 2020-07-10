@@ -21,26 +21,26 @@ export default {
     addInstitution({ commit }, institutionRecord) {
         var dataBody =
         {
-                "code": (institutionRecord.code !==null) ? institutionRecord.code:"",
-                "nameFr": (institutionRecord.frenchName !==null) ? institutionRecord.frenchName:"",
-                "nameAr": (institutionRecord.arabicName !==null) ? institutionRecord.arabicName:"",
-                "nameEn": (institutionRecord.englishName !==null) ? institutionRecord.englishName:"",
+                "code": institutionRecord.code,
+                "nameFr": institutionRecord.frenchName,
+                "nameAr": institutionRecord.arabicName,
+                "nameEn": institutionRecord.englishName,
                 "address": {
-                    "streetFr": (institutionRecord.streetFr !==null) ? institutionRecord.streetFr:"",
-                    "streetAr": (institutionRecord.streetAr !==null) ? institutionRecord.streetAr:"",
-                    "cityFr": (institutionRecord.cityFr !==null) ? institutionRecord.cityFr:"",
-                    "cityAr": (institutionRecord.cityAr !==null) ? institutionRecord.cityAr:"",
+                    "streetFr": institutionRecord.streetFr,
+                    "streetAr": institutionRecord.streetAr,
+                    "cityFr": institutionRecord.cityFr,
+                    "cityAr": institutionRecord.cityAr,
                     "countryFr": institutionRecord.countryFr[0],
                     "countryAr":institutionRecord.countryAr[0],
-                    "longitude": (institutionRecord.longitude !==null) ? institutionRecord.longitude:"",
-                    "latitude": (institutionRecord.latitude !==null) ? institutionRecord.latitude:"",
+                    "longitude": institutionRecord.longitude,
+                    "latitude": institutionRecord.latitude,
                 },
                 "contactInfo": {
-                    "email": (institutionRecord.email !==null) ? institutionRecord.email:"",
-                    "phone": (institutionRecord.phone !==null) ? institutionRecord.phone:"",
-                    "fax": (institutionRecord.fax !==null) ? institutionRecord.fax:"",
+                    "email": institutionRecord.email,
+                    "phone": institutionRecord.phoneNb,
+                    "fax": institutionRecord.fax,
                 },
-                "parentId" : "7A83F250-A04A-90B9-60C9-795A1EF0F942"
+                "parentId" : "92A17842-A2B9-5F5D-161D-8CBC875BE0C4" //id for USJ institution
             };
 
         return new Promise((resolve, reject) => {

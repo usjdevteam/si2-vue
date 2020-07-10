@@ -62,7 +62,7 @@
                         </v-card>
                     </div>
 
-                    <div class="u-card-margin">
+                    <div style="margin-top: 3%">
                         <v-card
                             class="mx-auto"
                         >
@@ -98,7 +98,7 @@
                         </v-card>
                     </div>
 
-                    <div class="u-card-margin">
+                    <div style="margin-top: 3%">
                         <v-card
                             class="mx-auto"
                         >
@@ -134,7 +134,7 @@
                         </v-card>
                     </div>
 
-                    <div class="u-card-margin">
+                    <div style="margin-top: 3%">
                         <v-card
                             class="mx-auto"
                         >
@@ -171,7 +171,7 @@
                     </div>
 
                     <!-- -->
-                    <div class="u-card-margin">
+                    <div style="margin-top: 3%">
                         <v-card
                             class="mx-auto"
                         >
@@ -214,7 +214,7 @@
                                         v-model="formAddInstitution.countryAr"
                                         id="countryAr" 
                                         name="countryAr"
-                                        :items="countryList"
+                                        :items="countryArList"
                                         color ="#031250"
                                         required
                                         outlined
@@ -223,7 +223,7 @@
                                         @blur="$v.formAddInstitution.countryAr.$touch()"
                                         :error-messages="countryArErrors"
                                         >
-                                            <option v-for="country in countryList" :key="country.id" :value="country.value">{{ country }}</option>
+                                            <option v-for="country in countryArList" :key="country.id" :value="country.value">{{ country }}</option>
                                         </v-select>
                                     </v-row>
                                     <v-row>
@@ -350,7 +350,7 @@
                     </div>
                     <!-- -->
 
-                    <div class="u-card-margin">
+                    <div style="margin-top: 3%">
                         <v-card
                             class="mx-auto"
                         >
@@ -387,13 +387,13 @@
                                         </span>
 
                                         <v-text-field class="u-text-padding"
-                                        v-model="formAddInstitution.phone"
+                                        v-model="formAddInstitution.phoneNb"
                                         color ="#031250"
                                         required
                                         outlined
                                         dense
-                                        @input="$v.formAddInstitution.phone.$touch()"
-                                        @blur="$v.formAddInstitution.phone.$touch()"
+                                        @input="$v.formAddInstitution.phoneNb.$touch()"
+                                        @blur="$v.formAddInstitution.phoneNb.$touch()"
                                         :error-messages="phoneErrors"
                                         ></v-text-field>
                                     </v-row>

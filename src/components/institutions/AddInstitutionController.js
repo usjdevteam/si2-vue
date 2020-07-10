@@ -10,6 +10,8 @@ export default {
     return {
         formAddInstitution :[],
         countryList: [
+        ],
+        countryArList: [
         ]
         }
   },
@@ -70,7 +72,7 @@ export default {
         required,
         email
       },
-      phone :{
+      phoneNb :{
         required,
         phone,
         maxLength: maxLength(30)
@@ -81,7 +83,8 @@ export default {
     }
 },	
 beforeMount(){
-  this.getCountryList()
+  this.getCountryList(),
+  this.getCountryArList()
 },       
 computed: {
     ...mapState( {institutions : state => state.institution.institutionsArray }),
@@ -189,11 +192,21 @@ computed: {
 
       return errors
     },
+    phoneErrors () {
+      const errors = []
+      if (!this.$v.formAddInstitution.phoneNb.$dirty) return errors
+      !this.$v.formAddInstitution.phoneNb.required && errors.push('phoneNb is required')
+      !this.$v.formAddInstitution.phoneNb.maxLength && errors.push('Phone must be at max 30 characters long')
+      !this.$v.formAddInstitution.phoneNb.phone && errors.push('Must be valid phone number')
+
+      return errors
+    },
     emailErrors () {
       const errors = []
       if (!this.$v.formAddInstitution.email.$dirty) return errors
       !this.$v.formAddInstitution.email.email && errors.push('Must be valid e-mail')
       !this.$v.formAddInstitution.email.required && errors.push('E-mail is required')
+      
       return errors
     },
     faxErrors () {
@@ -201,13 +214,6 @@ computed: {
       if (!this.$v.formAddInstitution.fax.$dirty) return errors
       !this.$v.formAddInstitution.fax.maxLength && errors.push('Fax must be at max 30 characters long')
 
-      return errors
-    },
-    phoneErrors () {
-      const errors = []
-      /*if (!this.$v.formAddInstitution.phone.$dirty) return errors
-      !this.$v.formAddInstitution.phone.phone && errors.push('Must be valid e-mail')
-      !this.$v.formAddInstitution.phone.required && errors.push('Phone is required')*/
       return errors
     }
 },
@@ -219,7 +225,7 @@ methods : {
       this.$v.$touch() //it will validate all fields
       if (this.$v.$invalid) { //invalid, becomes true when a validations return false
        //you dont have validation error.So do what u want to do here
-      // return;
+       return;
       }
 
       await this.addInstitution(this.formAddInstitution)
@@ -477,6 +483,207 @@ methods : {
 
 
       return this.countryList;
+    },
+    getCountryArList() {
+      this.countryArList = [
+                
+                ["أفغانستان"],
+                ["ألبانيا"],
+                ["الجزائر"],
+                ["أندورا"],
+                ["أنغولا"],
+                ["أنتيغوا وباربودا"],
+                ["الأرجنتين"],
+                ["أرمينيا"],
+                ["أستراليا"],
+                ["النمسا"],
+                ["أذربيجان"],
+                ["البهاما"],
+                ["البحرين"],
+                ["بنغلاديش"],
+                ["باربادوس"],
+                ["بيلاروسيا"],
+                ["بلجيكا"],
+                ["بليز"],
+                ["بنين"],
+                ["بوتان"],
+                ["بوليفيا"],
+                ["البوسنة والهرسك "],
+                ["بوتسوانا"],
+                ["البرازيل"],
+                ["بروناي"],
+                ["بلغاريا"],
+                ["بوركينا فاسو "],
+                ["بوروندي"],
+                ["كمبوديا"],
+                ["الكاميرون"],
+                ["كندا"],
+                ["الرأس الأخضر"],
+                ["جمهورية أفريقيا الوسطى "],
+                ["تشاد"],
+                ["تشيلي"],
+                ["الصين"],
+                ["كولومبيا"],
+                ["جزر القمر"],
+                ["كوستاريكا"],
+                ["ساحل العاج"],
+                ["كرواتيا"],
+                ["كوبا"],
+                ["قبرص"],
+                ["التشيك"],
+                ["جمهورية الكونغو الديمقراطية"],
+                ["الدنمارك"],
+                ["جيبوتي"],
+                ["دومينيكا"],
+                ["جمهورية الدومينيكان"],
+                ["تيمور الشرقية "],
+                ["الإكوادور"],
+                ["مصر"],
+                ["السلفادور"],
+                ["غينيا الاستوائية"],
+                ["إريتريا"],
+                ["إستونيا"],
+                ["إثيوبيا"],
+                ["فيجي"],
+                ["فنلندا"],
+              ["فرنسا"],
+                ["الغابون"],
+                ["غامبيا"],
+                ["جورجيا"],
+                ["ألمانيا"],
+                ["غانا"],
+                ["اليونان"],
+                ["جرينادا"],
+                ["غواتيمالا"],
+                ["غينيا"],
+                ["غينيا بيساو"],
+                ["غويانا"],
+                ["هايتي"],
+                ["هندوراس"],
+                ["المجر"],
+                ["آيسلندا"],
+                ["الهند"],
+                ["إندونيسيا"],
+                ["إيران"],
+                ["العراق"],
+                ["جمهورية أيرلندا "],
+                ["فلسطين"],
+                ["إيطاليا"],
+                ["جامايكا"],
+                ["اليابان"],
+                ["الأردن"],
+                ["كازاخستان"],
+                ["كينيا"],
+                ["كيريباتي"],
+                ["الكويت"],
+                ["قرغيزستان"],
+                ["لاوس"],
+                ["لاتفيا"],
+                ["لبنان"],
+                ["ليسوتو"],
+                ["ليبيريا"],
+                ["ليبيا"],
+                ["ليختنشتاين"],
+                ["ليتوانيا"],
+                ["لوكسمبورغ"],
+                ["مدغشقر"],
+                ["مالاوي"],
+                ["ماليزيا"],
+                ["جزر المالديف"],
+                ["مالي"],
+                ["مالطا"],
+                ["جزر مارشال"],
+                ["موريتانيا"],
+                ["موريشيوس"],
+                ["المكسيك"],
+                ["مايكرونيزيا"],
+                ["مولدوفا"],
+                ["موناكو"],
+                ["منغوليا"],
+                ["الجبل الأسود"],
+                ["المغرب"],
+                ["موزمبيق"],
+                ["بورما"],
+                ["ناميبيا"],
+                ["ناورو"],
+                ["نيبال"],
+                ["هولندا"],
+                ["نيوزيلندا"],
+                ["نيكاراجوا"],
+                ["النيجر"],
+                ["نيجيريا"],
+                ["كوريا الشمالية "],
+                ["النرويج"],
+                ["سلطنة عمان"],
+                ["باكستان"],
+                ["بالاو"],
+                ["بنما"],
+                ["بابوا غينيا الجديدة"],
+                ["باراغواي"],
+                ["بيرو"],
+                ["الفلبين"],
+                ["بولندا"],
+                ["البرتغال"],
+                ["قطر"],
+                ["جمهورية الكونغو"],
+                ["جمهورية مقدونيا"],
+                ["رومانيا"],
+                ["روسيا"],
+                ["رواندا"],
+                ["سانت كيتس ونيفيس"],
+                ["سانت لوسيا"],
+                ["سانت فنسينت والجرينادينز"],
+                ["ساموا"],
+                ["سان مارينو"],
+                ["ساو تومي وبرينسيب"],
+                ["السعودية"],
+                ["السنغال"],
+                ["صربيا"],
+                ["سيشيل"],
+                ["سيراليون"],
+                ["سنغافورة"],
+                ["سلوفاكيا"],
+                ["سلوفينيا"],
+                ["جزر سليمان"],
+                ["الصومال"],
+                ["جنوب أفريقيا"],
+                ["كوريا الجنوبية"],
+                ["جنوب السودان"],
+                ["إسبانيا"],
+                ["سريلانكا"],
+                ["السودان"],
+                ["سورينام"],
+                ["سوازيلاند"],
+                ["السويد"],
+                ["سويسرا"],
+                ["سوريا"],
+                ["طاجيكستان"],
+                ["تنزانيا"],
+                ["تايلاند"],
+                ["توغو"],
+                ["تونجا"],
+                ["ترينيداد وتوباغو"],
+                ["تونس"],
+                ["تركيا"],
+                ["تركمانستان"],
+                ["توفالو"],
+                ["أوغندا"],
+                ["أوكرانيا"],
+                ["االإمارات العربية المتحدة"],
+                ["المملكة المتحدة"],
+                ["الولايات المتحدة"],
+                ["أوروغواي"],
+                ["أوزبكستان"],
+                ["فانواتو"],
+                ["فنزويلا"],
+                ["فيتنام"],
+                ["اليمن"],
+                ["ززامبيا"],
+                ["زيمبابوي"]
+
+          ];
+
+          return this.countryArList;
     },
   }
 }
