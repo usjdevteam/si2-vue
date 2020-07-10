@@ -74,3 +74,32 @@
   width: 100%;
   display: none;
 }
+
+
+// Pop UP
+.u-popup{
+    font-family: $type-1 !important;
+  .person-name{
+    color : $black !important; 
+  }
+  .person-post{
+    color : $light-gray!important; 
+  }
+  .u-link{
+    color : $red  !important;
+  }
+
+  .u-list-item{
+    border-top : 1px solid $white-gray;
+  }
+  .u-section-item{
+    background-color: $white-blue !important;
+    color : $black !important; 
+    text-transform: uppercase;
+  }
+  .u-sub-item{
+    padding-left: 30px;
+    color: $gray-blue !important;
+  }
+  
+}

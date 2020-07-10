@@ -5,7 +5,8 @@ export default {
       },
       data: () => ({
         drawer: null,
-        
+        overlay: false,
+        zIndex: -1,
       }),
     //   methods: {
     //     logout() {

@@ -44,7 +44,19 @@
 .margin-right-5-p{
     margin-right: 5%!important;
 }
-
+.margin-middle-10-p{
+    margin-left: 10% !important;
+    margin-right: 10% !important;
+}
+.margin-left-35-p{
+    margin-left: 35% !important;
+}
+.margin-bottom-4-p{
+    margin-bottom: 4% !important;
+}
+.no-padding-bottom{
+    padding-bottom: 0 !important;
+}
 /* ----------------- HR ----------------- 
 /* -------------------------------------------- */
 hr.u-hr{
@@ -64,7 +76,10 @@ a.u-link{
     color: $blue !important;
     font-family: $type-1 !important;
 }
-
+a.u-link-danger{
+    color: $red !important;
+    font-family: $type-1 !important;
+}
 /* ----------------- Float ----------------- 
 /* -------------------------------------------- */
 .pull-right{

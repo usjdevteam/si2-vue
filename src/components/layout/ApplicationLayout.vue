@@ -1,4 +1,5 @@
 <template>
+  
   <v-app>
       <v-app-bar
       clipped-left
@@ -60,21 +61,71 @@
         v-model="menu"
         :close-on-content-click="false"
         :nudge-width="200"
+        offset-y
         offset-x
       >
         <template v-slot:activator="{ on }">
-          <v-btn
-            color="indigo"
-            dark
-            v-on="on"
-          >
-            Menu as Popover
-          </v-btn>
+          <v-btn icon v-bind="attrs" v-on="on">
+              <v-avatar >
+                  <v-img
+                      class="u-avatar"
+                      :src="require('@/assets/images/avatar.png')"
+                  ></v-img>
+                </v-avatar>
+            </v-btn>
         </template>
   
         <v-card>
-            <div class="col-md-12">
-                adasd
+            <div class="col-md-12 u-popup">
+                <div class="row">
+                  <div class="col-md-3">
+                    <v-avatar >
+                      <v-img
+                          class="u-avatar"
+                          :src="require('@/assets/images/avatar.png')"
+                      ></v-img>
+                    </v-avatar>
+                  </div>
+                  <div class="col-md-8 no-padding-bottom">
+                    <h4 class="person-name">Antoinette Tamer</h4>
+                    <p>Head of Unit - Teacher - Student</p>
+                  </div>
+                </div>
+                <div class="row text-center">
+                  <a class="text-center u-link-danger text-bold margin-left-35-p margin-bottom-4-p">View Profile</a>
+                </div>
+
+                  <div class="row">
+                    <div class="col-md-12 u-list-item u-section-item">
+                      <span>Account</span>
+                    </div>
+                   
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 u-list-item u-sub-item">
+                      <span>Settings</span>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 u-list-item u-sub-item">
+                      <span>Change Password</span>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 u-list-item u-section-item">
+                      <span>Manage</span>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 u-list-item u-sub-item">
+                      <span>Subscriptions</span>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 u-list-item u-sub-item">
+                      <span>Sign Out</span>
+                    </div>
+                  </div>
             </div>
           <!-- <v-list>
             <v-list-tile avatar>
@@ -99,7 +150,7 @@
             </v-list-tile>
           </v-list> -->
   
-          <v-divider></v-divider>
+         
   
           <!-- <v-list>
             <v-list-tile>
