@@ -6,6 +6,7 @@ import SignIn from '../components/signIn/SignIn.vue';
 import Application from '../components/layout/ApplicationLayout.vue'
 import Home from '../components/home/Home.vue'
 import InstitutionIndex from '../components/institutions/Index.vue'
+import ViewInstitution from '../components/institution/ViewInstitution.vue'
 
 
 Vue.use(VueRouter);
@@ -26,22 +27,33 @@ const routes = [
         requiresAuth: true
       },
     children : [
-      {
-          path: 'home',
-          name: 'Home',
-          component: Home,
+
+        {
+            path: 'home',
+            name: 'Home',
+            component: Home,
+            meta: { 
+                requiresAuth: true
+              },
+        },
+        {
+          path: 'viewinstitution/:institutionid',
+          name: 'ViewInstitution',
+          props: true ,
+          component: ViewInstitution,
           meta: { 
               requiresAuth: true
             },
-      },
+      },  
       {
-        path: 'institutions',
-        name: 'Institutions',
-        component: InstitutionIndex,
-        meta: { 
-            requiresAuth: true
-          },
+       path: 'institutions',
+       name: 'Institutions',
+       component: InstitutionIndex,
+       meta: { 
+          requiresAuth: true
+       },
       }
+
     ]
 }
 ];
