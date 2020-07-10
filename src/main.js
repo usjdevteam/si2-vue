@@ -1,15 +1,28 @@
 import Vue from 'vue'
 import App from './App.vue'
 
+import router from "./router"
+import store from "./store"
+import Axios from 'axios'
+
+
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
-
+import '@mdi/font/css/materialdesignicons.css'
 import Vuelidate from 'vuelidate'
 
-  
+
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faEdit } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+Vue.component('font-awesome-icon', FontAwesomeIcon)
+library.add(faEdit)
+
+
+
 Vue.use(Vuetify, {
-  iconfont: 'md'
+  iconfont: 'mdi'
 })
 
 
@@ -19,13 +32,14 @@ Vue.use(Vuelidate)
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 
 Vue.use(BootstrapVue)
-// Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)
 
 
-import router from "./router"
-import store from "./store"
-import Axios from 'axios'
+export default new Vuetify({
+  icons: {
+    iconfont: 'mdiSvg', // 'mdi' || 'mdiSvg' || 'md' || 'fa' || 'fa4' || 'faSvg'
+  },
+})
 
 Vue.config.productionTip = false
 
@@ -42,8 +56,6 @@ if (token) {
   Vue.prototype.$http.defaults.headers.common['Authorization'] = token
 }
 
-
-console.log(process.env.VUE_APP_SERVER_API)
 
 new Vue({
   render: h => h(App),

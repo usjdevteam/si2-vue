@@ -7,6 +7,7 @@ import Application from '../components/layout/ApplicationLayout.vue'
 import Home from '../components/home/Home.vue'
 import AddInstitution from '../components/institutions/AddInstitution.vue'
 
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -34,21 +35,14 @@ const routes = [
               },
         },
         {
-               path: 'addinstitution',
+               path: 'institution/add',
                name: 'AddInstitution',
                component: AddInstitution,
                meta: { 
                    requiresAuth: false
                  },
         }
-      //   {
-      //     path: 'institutions',
-      //     name: 'Institutions',
-      //     component: InstitutionIndex,
-      //     meta: { 
-      //         requiresAuth: true
-      //       },
-      // }
+
     ]
 }
 ];
@@ -66,7 +60,8 @@ router.beforeEach((to, from, next) => {
   if (to.matched.length > 0){ // CHECK IF THE LINK HAS A COMPONENT
     
     if(to.matched.some(record => record.meta.requiresAuth)) {
-      if (store.getters['session/isLoggedIn'] &&  store.getters['session/authStatus'] == 'success') {
+      //if (store.getters['session/isLoggedIn'] &&  store.getters['session/authStatus'] == 'success') {
+      if (store.getters['session/isLoggedIn']) {
         next()
         return
       }

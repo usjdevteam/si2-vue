@@ -6,10 +6,10 @@
             <v-flex md12>
                 <div class="col-md-12">
                     <v-row>
-                        <h2 class='margin-right-2-p u-spacing u-header-text'>Add New Institution</h2>
+                        <h3 class='margin-right-2-p u-spacing u-header-text'>Add New Institution</h3>
                         <v-btn
                         class="ma-1 u-btn u-btn-outlined-primary"
-                        @click="insertNewInstitution" 
+                        @click="insertNewInstitution"
                         >
                         Add New
                         </v-btn>
@@ -48,7 +48,7 @@
                                     dense
                                     @input="$v.formAddInstitution.frenchName.$touch()"
                                     @blur="$v.formAddInstitution.frenchName.$touch()"
-                                    :error-messages="propertyErrors"
+                                    :error-messages="frenchNameErrors"
                                     ></v-text-field>
 
                                     <span class="caption grey--text text--darken-1 u-card-code">
@@ -84,7 +84,7 @@
                                     dense
                                     @input="$v.formAddInstitution.englishName.$touch()"
                                     @blur="$v.formAddInstitution.englishName.$touch()"
-                                    :error-messages="propertyErrors"
+                                    :error-messages="englishNameErrors"
                                     ></v-text-field>
 
                                     <span class="caption grey--text text--darken-1 u-card-code">
@@ -120,7 +120,7 @@
                                     dense
                                     @input="$v.formAddInstitution.arabicName.$touch()"
                                     @blur="$v.formAddInstitution.arabicName.$touch()"
-                                    :error-messages="propertyErrors"
+                                    :error-messages="arabicNameErrors"
                                     ></v-text-field>
 
                                     <span class="caption grey--text text--darken-1 u-card-code">
@@ -156,7 +156,7 @@
                                     dense
                                     @input="$v.formAddInstitution.code.$touch()"
                                     @blur="$v.formAddInstitution.code.$touch()"
-                                    :error-messages="propertyErrors"
+                                    :error-messages="codeErrors"
                                     ></v-text-field>
 
                                     <span class="caption grey--text text--darken-1 u-card-code">
@@ -183,40 +183,49 @@
 
                             <v-window>
 
-                                <v-window-item >
+                                <v-window-item>
                                 <v-card-text>
                                     <v-row>
                                         <span class="u-card-label">
                                             Country 
                                         </span>
-
+                                    
                                         <v-select class="u-textCountry-padding"
                                         v-model="formAddInstitution.countryFr"
+                                        id="country" 
+                                        name="country"
+                                        :items="countryList"
                                         color ="#031250"
                                         required
                                         outlined
                                         dense
                                         @input="$v.formAddInstitution.countryFr.$touch()"
                                         @blur="$v.formAddInstitution.countryFr.$touch()"
-                                        :error-messages="propertyErrors"
-                                        ></v-select>
-
+                                        :error-messages="countryFrErrors"
+                                        >
+                                           <option v-for="country in countryList" :key="country.id" :value="country.value">{{ country }}</option>
+                                        </v-select>
+                                    
                                         <span class="u-card-labelArabic">
                                             دولة 
                                         </span>
 
-                                         <v-select class="u-text-padding"
+                                        <v-select class="u-text-paddingAr"
                                         v-model="formAddInstitution.countryAr"
+                                        id="countryAr" 
+                                        name="countryAr"
+                                        :items="countryList"
                                         color ="#031250"
                                         required
                                         outlined
                                         dense
                                         @input="$v.formAddInstitution.countryAr.$touch()"
                                         @blur="$v.formAddInstitution.countryAr.$touch()"
-                                        :error-messages="propertyErrors"
-                                        ></v-select>
+                                        :error-messages="countryArErrors"
+                                        >
+                                            <option v-for="country in countryList" :key="country.id" :value="country.value">{{ country }}</option>
+                                        </v-select>
                                     </v-row>
-
                                     <v-row>
                                         <span class="u-card-labelCity">
                                             City 
@@ -230,7 +239,7 @@
                                         dense
                                         @input="$v.formAddInstitution.cityFr.$touch()"
                                         @blur="$v.formAddInstitution.cityFr.$touch()"
-                                        :error-messages="propertyErrors"
+                                        :error-messages="cityFrErrors"
                                         ></v-text-field>
 
                                         <span class="u-card-labelArabic">
@@ -245,7 +254,7 @@
                                         dense
                                         @input="$v.formAddInstitution.cityAr.$touch()"
                                         @blur="$v.formAddInstitution.cityAr.$touch()"
-                                        :error-messages="propertyErrors"
+                                        :error-messages="cityArErrors"
                                         ></v-text-field>
                                     </v-row>
 
@@ -262,7 +271,7 @@
                                         dense
                                         @input="$v.formAddInstitution.streetFr.$touch()"
                                         @blur="$v.formAddInstitution.streetFr.$touch()"
-                                        :error-messages="propertyErrors"
+                                        :error-messages="streetFrErrors"
                                         ></v-text-field>
 
                                         <span class="u-card-labelArabic">
@@ -277,7 +286,7 @@
                                         dense
                                         @input="$v.formAddInstitution.streetAr.$touch()"
                                         @blur="$v.formAddInstitution.streetAr.$touch()"
-                                        :error-messages="propertyErrors"
+                                        :error-messages="streetArErrors"
                                         ></v-text-field>
                                     </v-row>
 
@@ -294,7 +303,7 @@
                                         dense
                                         @input="$v.formAddInstitution.latitude.$touch()"
                                         @blur="$v.formAddInstitution.latitude.$touch()"
-                                        :error-messages="propertyErrors"
+                                        :error-messages="latitudeErrors"
                                         ></v-text-field>
                                     </v-row>
 
@@ -311,12 +320,12 @@
                                         dense
                                         @input="$v.formAddInstitution.longitude.$touch()"
                                         @blur="$v.formAddInstitution.longitude.$touch()"
-                                        :error-messages="propertyErrors"
+                                        :error-messages="longitudeErrors"
                                         ></v-text-field>
                                     </v-row>
 
                                     <v-row>
-                                      <!-- <template>
+                                      <!-- <template> api of google name it map, and give it the lat and long
                                             <gmaps-map>
                                                 <gmaps-marker :position="{ lat: -27, lng: 153 }" />
                                             </gmaps-map>
@@ -332,6 +341,17 @@
                     </div>
                     <!-- -->
 
+                    <div class="mapouter">
+                        <div class="gmap"  
+                        :marker="{ lat: formAddInstitution.latitude, lng: formAddInstitution.longitude }">
+                            <iframe width="600" height="500" 
+                            id="gmap_canvas" 
+                            src="https://maps.google.com/maps?q=lebanon&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+                            frameborder="0" scrolling="no" 
+                            marginheight="0" marginwidth="0"></iframe>
+                            </div>
+                    </div>
+
                     <div class="u-card-margin">
                         <v-card
                             class="mx-auto"
@@ -342,7 +362,7 @@
 
                             <v-divider></v-divider>
 
-                            <v-window v-model="step">
+                            <v-window>
 
                                 <v-window-item >
                                 <v-card-text>
@@ -359,7 +379,7 @@
                                         dense
                                         @input="$v.formAddInstitution.email.$touch()"
                                         @blur="$v.formAddInstitution.email.$touch()"
-                                        :error-messages="propertyErrors"
+                                        :error-messages="emailErrors"
                                         ></v-text-field>
                                     </v-row>
 
@@ -376,7 +396,7 @@
                                         dense
                                         @input="$v.formAddInstitution.phone.$touch()"
                                         @blur="$v.formAddInstitution.phone.$touch()"
-                                        :error-messages="propertyErrors"
+                                        :error-messages="phoneErrors"
                                         ></v-text-field>
                                     </v-row>
 
@@ -393,7 +413,7 @@
                                             dense
                                             @input="$v.formAddInstitution.fax.$touch()"
                                             @blur="$v.formAddInstitution.fax.$touch()"
-                                            :error-messages="propertyErrors"
+                                            :error-messages="faxErrors"
                                             ></v-text-field>
                                     </v-row>
 
@@ -403,6 +423,25 @@
 
                             <v-divider></v-divider>
                         </v-card>
+
+                        <v-layout row>
+                            <v-flex md12>
+                                <span class="col-md-12">
+                                    <v-row>
+                                        <span></span>
+                                        <span></span>
+                                        <v-btn
+                                        class="ma-1 u-btn u-btn-outlined-primary"
+                                        @click="insertNewInstitution"
+                                        >
+                                        Add New
+                                        </v-btn>
+    
+                                    </v-row>
+                                </span>
+                            </v-flex>
+                        </v-layout>
+
                     </div>
                     </v-form>
                 
@@ -418,7 +457,6 @@
 
 
 <script src="./AddInstitutionController.js"> </script>
-<!-- <script src="./index.js"> </script> -->
 
 <style lang="scss">
     @import "../../../src/assets/styles/components/AddInstitution";
