@@ -31,7 +31,7 @@ export default {
                     "cityFr": institutionRecord.cityFr,
                     "cityAr": institutionRecord.cityAr,
                     "countryFr": institutionRecord.countryFr[0],
-                    "countryAr":institutionRecord.countryAr[0],
+                    "countryAr": (institutionRecord.countryAr == undefined ? null : institutionRecord.countryAr[0]),
                     "longitude": institutionRecord.longitude,
                     "latitude": institutionRecord.latitude,
                 },

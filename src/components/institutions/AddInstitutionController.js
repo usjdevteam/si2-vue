@@ -1,14 +1,35 @@
 import { mapActions } from 'vuex';
 import { mapState } from 'vuex';
 import { validationMixin } from '../../../node_modules/vuelidate'
-const { required, email, phone, maxLength, decimal,minValue, maxValue } = require('../../../node_modules/vuelidate/lib/validators')
+const { required, email, maxLength, decimal,minValue, maxValue } = require('../../../node_modules/vuelidate/lib/validators')
 
 export default {
   name: 'AddInstitution',
   mixins: [validationMixin],
   data () {
     return {
-        formAddInstitution :[],
+        formAddInstitution :        {
+          code: null,
+          nameFr: null,
+          nameAr: null,
+          nameEn: null,
+          address: {
+              streetFr: null,
+              streetAr: null,
+              cityFr: null,
+              cityAr: null,
+              countryFr:null,
+              countryAr:null,
+              longitude: null,
+              latitude: null,
+          },
+          contactInfo: {
+              email: null,
+              phone: null,
+              fax: null,
+          },
+          parentId : "92A17842-A2B9-5F5D-161D-8CBC875BE0C4" //id for USJ institution
+        },
         countryList: [
         ],
         countryArList: [
@@ -74,7 +95,7 @@ export default {
       },
       phoneNb :{
         required,
-        phone,
+        // phone,
         maxLength: maxLength(30)
       },
       fax :{
@@ -92,8 +113,8 @@ computed: {
     frenchNameErrors () {
       const errors = []
       if (!this.$v.formAddInstitution.frenchName.$dirty) return errors
-      !this.$v.formAddInstitution.frenchName.maxLength && errors.push('Name must be at max 400 characters long')
-      !this.$v.formAddInstitution.frenchName.required && errors.push('Name is required')
+      !this.$v.formAddInstitution.frenchName.maxLength && errors.push('French name must be at max 400 characters long')
+      !this.$v.formAddInstitution.frenchName.required && errors.push('French name is required')
 
       return errors
     },
@@ -197,7 +218,7 @@ computed: {
       if (!this.$v.formAddInstitution.phoneNb.$dirty) return errors
       !this.$v.formAddInstitution.phoneNb.required && errors.push('phoneNb is required')
       !this.$v.formAddInstitution.phoneNb.maxLength && errors.push('Phone must be at max 30 characters long')
-      !this.$v.formAddInstitution.phoneNb.phone && errors.push('Must be valid phone number')
+      // !this.$v.formAddInstitution.phoneNb.phone && errors.push('Must be valid phone number')
 
       return errors
     },
