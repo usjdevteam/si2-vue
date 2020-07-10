@@ -65,7 +65,7 @@
     </div>
 </template>
 
-<script src="./index.js"> </script>
+<script src="./IndexController.js"> </script>
 
 <style lang="scss">
     @import "../../../src/assets/styles/components/InstitutionIndex";
