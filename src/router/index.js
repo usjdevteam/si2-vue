@@ -5,6 +5,7 @@ import store from '../store/index.js'
 import SignIn from '../components/signIn/SignIn.vue';
 import Application from '../components/layout/ApplicationLayout.vue'
 import Home from '../components/home/Home.vue'
+import ViewInstitution from '../components/institution/ViewInstitution.vue'
 
 
 Vue.use(VueRouter);
@@ -22,7 +23,7 @@ const routes = [
     name : "Application",
     component : Application,
     meta: { 
-        requiresAuth: true
+        requiresAuth: false
       },
     children : [
         {
@@ -32,7 +33,16 @@ const routes = [
             meta: { 
                 requiresAuth: true
               },
-        }
+        },
+        {
+          path: 'viewinstitution/:institutionid',
+          name: 'ViewInstitution',
+          props: true ,
+          component: ViewInstitution,
+          meta: { 
+              requiresAuth: false
+            },
+      },      
     ]
 }
 ];
