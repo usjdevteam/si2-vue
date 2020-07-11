@@ -149,7 +149,7 @@
                                 <v-window-item >
                                 <v-card-text>
                                     <v-text-field
-                                    v-model="formAddInstitution.code"
+                                    v-model="formAddInstitution.code "
                                     color ="#031250"
                                     required
                                     outlined
@@ -203,6 +203,7 @@
                                         @blur="$v.formAddInstitution.countryFr.$touch()"
                                         :error-messages="countryFrErrors"
                                         >
+                                           <option disabled value="">Please select one</option>
                                            <option v-for="country in countryList" :key="country.id" :value="country.value">{{ country }}</option>
                                         </v-select>
                                     
@@ -223,6 +224,7 @@
                                         @blur="$v.formAddInstitution.countryAr.$touch()"
                                         :error-messages="countryArErrors"
                                         >
+                                            <option disabled value="">رجاءا اختر واحدة</option>
                                             <option v-for="country in countryArList" :key="country.id" :value="country.value">{{ country }}</option>
                                         </v-select>
                                     </v-row>

@@ -19,7 +19,7 @@ export default {
   },
   actions: {
     addInstitution({ commit }, institutionRecord) {
-        var dataBody =
+        /*var dataBody =
         {
                 "code": institutionRecord.code,
                 "nameFr": institutionRecord.frenchName,
@@ -27,9 +27,9 @@ export default {
                 "nameEn": institutionRecord.englishName,
                 "address": {
                     "streetFr": institutionRecord.streetFr,
-                    "streetAr": institutionRecord.streetAr,
+                    "streetAr": (institutionRecord.streetAr == undefined ? null : institutionRecord.streetAr[0]),
                     "cityFr": institutionRecord.cityFr,
-                    "cityAr": institutionRecord.cityAr,
+                    "cityAr": (institutionRecord.cityAr == undefined ? null : institutionRecord.cityAr[0]),
                     "countryFr": institutionRecord.countryFr[0],
                     "countryAr": (institutionRecord.countryAr == undefined ? null : institutionRecord.countryAr[0]),
                     "longitude": institutionRecord.longitude,
@@ -38,14 +38,14 @@ export default {
                 "contactInfo": {
                     "email": institutionRecord.email,
                     "phone": institutionRecord.phoneNb,
-                    "fax": institutionRecord.fax,
+                    "fax": (institutionRecord.fax == undefined ? null : institutionRecord.fax[0]),
                 },
-                "parentId" : "92A17842-A2B9-5F5D-161D-8CBC875BE0C4" //id for USJ institution
-            };
+                //"parentId" : "92A17842-A2B9-5F5D-161D-8CBC875BE0C4" //id for USJ institution
+            };*/
 
         return new Promise((resolve, reject) => {
 
-             axios({ "url": process.env.VUE_APP_SERVER_API + "/institutions", method: "POST" , data: dataBody
+             axios({ "url": process.env.VUE_APP_SERVER_API + "/institutions", method: "POST" , data: institutionRecord/*dataBody*/
                 })    
                 .then(resp => {
                     

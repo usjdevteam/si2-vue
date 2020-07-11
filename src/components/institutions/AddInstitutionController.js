@@ -27,8 +27,7 @@ export default {
               email: null,
               phone: null,
               fax: null,
-          },
-          parentId : "92A17842-A2B9-5F5D-161D-8CBC875BE0C4" //id for USJ institution
+          }
         },
         countryList: [
         ],
