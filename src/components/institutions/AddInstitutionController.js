@@ -1,13 +1,15 @@
 import { mapActions } from 'vuex';
 import { mapState } from 'vuex';
 import { validationMixin } from '../../../node_modules/vuelidate'
-const { required, email, maxLength, decimal,minValue, maxValue } = require('../../../node_modules/vuelidate/lib/validators')
+const { required, email, maxLength, decimal, minValue, maxValue, /*phone,*/ numeric } = require('../../../node_modules/vuelidate/lib/validators')
 
 export default {
   name: 'AddInstitution',
   mixins: [validationMixin],
   data () {
     return {
+        lat: 0,
+        lng: 0,
         formAddInstitution :        {
           code: null,
           nameFr: null,
@@ -20,8 +22,8 @@ export default {
               cityAr: null,
               countryFr:null,
               countryAr:null,
-              longitude: null,
-              latitude: null,
+              longitude: 0.0,
+              latitude: 0.0,
           },
           contactInfo: {
               email: null,
@@ -33,19 +35,27 @@ export default {
         ],
         countryArList: [
         ]
-        }
+    }
   },
+  props: [
+    'lat',
+    'lng'
+  ],
+  created() {
+    this.lat= 33.8809092,
+    this.lng= 35.5111665
+  },  
   validations: {
     formAddInstitution :{
-      frenchName :{
+      nameFr :{
         required,
         maxLength: maxLength(400)
       },
-      englishName :{
+      nameEn :{
         required,
         maxLength: maxLength(400)
       },
-      arabicName :{
+      nameAr :{
         required,
         maxLength: maxLength(400)
       },
@@ -92,12 +102,14 @@ export default {
         required,
         email
       },
-      phoneNb :{
+      phone :{
         required,
-        // phone,
+        //phone,
+        numeric,
         maxLength: maxLength(30)
       },
       fax :{
+        numeric,
         maxLength: maxLength(30)
       }
     }
@@ -109,27 +121,27 @@ beforeMount(){
 computed: {
     ...mapState( {institutions : state => state.institution.institutionsArray }),
 
-    frenchNameErrors () {
+    nameFrErrors () {
       const errors = []
-      if (!this.$v.formAddInstitution.frenchName.$dirty) return errors
-      !this.$v.formAddInstitution.frenchName.maxLength && errors.push('French name must be at max 400 characters long')
-      !this.$v.formAddInstitution.frenchName.required && errors.push('French name is required')
+      if (!this.$v.formAddInstitution.nameFr.$dirty) return errors
+      !this.$v.formAddInstitution.nameFr.maxLength && errors.push('French name must be at max 400 characters long')
+      !this.$v.formAddInstitution.nameFr.required && errors.push('French name is required')
 
       return errors
     },
-    englishNameErrors () {
+    nameEnErrors () {
       const errors = []
-      if (!this.$v.formAddInstitution.englishName.$dirty) return errors
-      !this.$v.formAddInstitution.englishName.maxLength && errors.push('Name must be at max 400 characters long')
-      !this.$v.formAddInstitution.englishName.required && errors.push('Name is required')
+      if (!this.$v.formAddInstitution.nameEn.$dirty) return errors
+      !this.$v.formAddInstitution.nameEn.maxLength && errors.push('Name must be at max 400 characters long')
+      !this.$v.formAddInstitution.nameEn.required && errors.push('Name is required')
 
       return errors
     },
-    arabicNameErrors () {
+    nameArErrors () {
       const errors = []
-      if (!this.$v.formAddInstitution.arabicName.$dirty) return errors
-      !this.$v.formAddInstitution.arabicName.maxLength && errors.push('Name must be at max 400 characters long')
-      !this.$v.formAddInstitution.arabicName.required && errors.push('Name is required')
+      if (!this.$v.formAddInstitution.nameAr.$dirty) return errors
+      !this.$v.formAddInstitution.nameAr.maxLength && errors.push('Name must be at max 400 characters long')
+      !this.$v.formAddInstitution.nameAr.required && errors.push('Name is required')
 
       return errors
     },
@@ -196,6 +208,7 @@ computed: {
       if (!this.$v.formAddInstitution.latitude.$dirty) return errors
       !this.$v.formAddInstitution.latitude.maxLength && errors.push('Street must be at max 9 characters long')
       !this.$v.formAddInstitution.latitude.required && errors.push('Latitude is required')
+      !this.$v.formAddInstitution.latitude.decimal && errors.push('Latitude should be decimal')
       !this.$v.formAddInstitution.latitude.minValue && errors.push('Latitude accepts at min -90 as value')
       !this.$v.formAddInstitution.latitude.maxValue && errors.push('Latitude accepts at max 90 as value')
 
@@ -214,10 +227,11 @@ computed: {
     },
     phoneErrors () {
       const errors = []
-      if (!this.$v.formAddInstitution.phoneNb.$dirty) return errors
-      !this.$v.formAddInstitution.phoneNb.required && errors.push('phoneNb is required')
-      !this.$v.formAddInstitution.phoneNb.maxLength && errors.push('Phone must be at max 30 characters long')
-      // !this.$v.formAddInstitution.phoneNb.phone && errors.push('Must be valid phone number')
+      if (!this.$v.formAddInstitution.phone.$dirty) return errors
+      !this.$v.formAddInstitution.phone.required && errors.push('Phone is required')
+      !this.$v.formAddInstitution.phone.maxLength && errors.push('Phone must be at max 30 characters long')
+      !this.$v.formAddInstitution.phone.numeric && errors.push('Phone must only contain numbers')
+      //!this.$v.formAddInstitution.phone.phone && errors.push('Must be valid phone number')
 
       return errors
     },
@@ -233,6 +247,7 @@ computed: {
       const errors = []
       if (!this.$v.formAddInstitution.fax.$dirty) return errors
       !this.$v.formAddInstitution.fax.maxLength && errors.push('Fax must be at max 30 characters long')
+      !this.$v.formAddInstitution.fax.numeric && errors.push('Fax must only contain numbers')
 
       return errors
     }
@@ -248,10 +263,42 @@ methods : {
        return;
       }
 
-      await this.addInstitution(this.formAddInstitution)
-          .then(() => alert("Successfully inserted"))    // .then(() => this.$router.push("/application/viewinstution?id="+id ))
-          .catch(() => alert("Failure") );
+      var dataBody =
+        {
+                "code": this.formAddInstitution.code,
+                "nameFr": this.formAddInstitution.nameFr,
+                "nameAr": this.formAddInstitution.nameAr,
+                "nameEn": this.formAddInstitution.nameEn,
+                "address": {
+                    "streetFr": this.formAddInstitution.streetFr,
+                    "streetAr": (this.formAddInstitution.streetAr == undefined ? null : this.formAddInstitution.streetAr),
+                    "cityFr": this.formAddInstitution.cityFr,
+                    "cityAr": (this.formAddInstitution.cityAr == undefined ? null : this.formAddInstitution.cityAr),
+                    "countryFr": this.formAddInstitution.countryFr[0],
+                    "countryAr": (this.formAddInstitution.countryAr == undefined ? null : this.formAddInstitution.countryAr[0]),
+                    "longitude": this.formAddInstitution.longitude,
+                    "latitude": this.formAddInstitution.latitude,
+                },
+                "contactInfo": {
+                    "email": this.formAddInstitution.email,
+                    "phone": this.formAddInstitution.phone,
+                    "fax": (this.formAddInstitution.fax == undefined ? null : this.formAddInstitution.fax),
+                },
+                //"parentId" : "92A17842-A2B9-5F5D-161D-8CBC875BE0C4" //id for USJ institution
+        };
+        
+      await this.addInstitution(dataBody)
+          .then(() => alert("Institution successfully inserted"))    // .then(() => this.$router.push("/application/viewinstution?id="+id ))
+          .catch(() => alert("Failure in insertion") );
     },
+
+    latitudeChange() {
+        this.lat = (this.formAddInstitution.latitude == undefined ? null : this.formAddInstitution.latitude)
+    },
+
+    longitudeChange() {
+      this.lng = (this.formAddInstitution.longitude == undefined ? null : this.formAddInstitution.longitude)
+  },
 
     getCountryList() {
       this.countryList = [
