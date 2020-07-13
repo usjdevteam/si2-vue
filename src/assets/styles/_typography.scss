@@ -28,26 +28,31 @@ p {
   .h2,
   h2 {
     font-size: 1.88rem;
+    color: $blue;
   }
   
   .h3,
   h3 {
     font-size: 1.56rem;
+    color: $blue;
   }
   
   .h4,
   h4 {
     font-size: 1.13rem;
+    color: $blue;
   }
   
   .h5,
   h5 {
     font-size: 1rem;
+    color: $blue;
   }
   
   .h6,
   h6 {
     font-size: 0.9375rem;
+    color: $blue;
   }
   
   p {
@@ -59,4 +64,10 @@ p {
 }
 .text-capitalize{
     text-transform: capitalize !important;
+}
+.dark-blue-color{
+  color: $dark-blue !important;
+}
+.lato{
+  font-family: $type-1 !important;
 }

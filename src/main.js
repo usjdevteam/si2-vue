@@ -25,14 +25,8 @@ Vue.use(Vuetify, {
   iconfont: 'mdi'
 })
 
-
-
 Vue.use(Vuelidate)
 
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
-
-Vue.use(BootstrapVue)
-Vue.use(IconsPlugin)
 
 
 export default new Vuetify({
@@ -40,6 +34,10 @@ export default new Vuetify({
     iconfont: 'mdiSvg', // 'mdi' || 'mdiSvg' || 'md' || 'fa' || 'fa4' || 'faSvg'
   },
 })
+
+
+
+
 
 Vue.config.productionTip = false
 
@@ -55,6 +53,7 @@ const token = localStorage.getItem('token')
 if (token) {
   Vue.prototype.$http.defaults.headers.common['Authorization'] = token
 }
+
 
 
 new Vue({

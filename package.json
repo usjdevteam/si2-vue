@@ -14,9 +14,12 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.1",
     "@fortawesome/vue-fontawesome": "^0.1.10",
     "axios": "^0.19.2",
+    "bootstrap-vue": "^2.15.0",
     "core-js": "^3.6.5",
     "lato-font": "^3.0.0",
     "material-design-icons-iconfont": "^5.0.1",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^9.0.2",
     "vue": "^2.6.11",
     "vue-router": "^3.3.4",
     "vuelidate": "^0.7.5",
@@ -24,6 +27,7 @@
     "vuex": "^3.5.1"
   },
   "devDependencies": {
+    "@mdi/font": "^5.3.45",
     "@vue/cli-plugin-babel": "~4.4.0",
     "@vue/cli-plugin-eslint": "~4.4.0",
     "@vue/cli-service": "~4.4.0",
