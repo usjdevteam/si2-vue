@@ -7,6 +7,7 @@ import Application from '../components/layout/ApplicationLayout.vue'
 import Home from '../components/home/Home.vue'
 import InstitutionIndex from '../components/institutions/Index.vue'
 import ViewInstitution from '../components/institution/ViewInstitution.vue'
+import EditInstitution from '../components/institutions/EditInstitution.vue'
 
 
 Vue.use(VueRouter);
@@ -24,7 +25,7 @@ const routes = [
     name : "Application",
     component : Application,
     meta: { 
-        requiresAuth: true
+        requiresAuth: false
       },
     children : [
 
@@ -52,7 +53,16 @@ const routes = [
        meta: { 
           requiresAuth: true
        },
-      }
+      },
+      {
+        path: 'institution/:institutionid',
+        name: 'EditInstitution',
+        props: true ,
+        component: EditInstitution,
+        meta: { 
+            requiresAuth: false
+          },
+    }  
 
     ]
 }
