@@ -45,8 +45,8 @@ const routes = [
                meta: { 
                    requiresAuth: false
                  },
-        }
-
+        },
+        {
           path: 'viewinstitution/:institutionid',
           name: 'ViewInstitution',
           props: true ,
@@ -64,7 +64,7 @@ const routes = [
        },
       }
     ]
-}
+  }
 ];
 
 const router = new VueRouter({
