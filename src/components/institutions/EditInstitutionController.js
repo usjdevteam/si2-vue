@@ -1,33 +1,29 @@
 import { mapActions } from 'vuex';
 import { mapState } from 'vuex';
 import { validationMixin } from '../../../node_modules/vuelidate'
-const { required, email, maxLength, decimal, minValue, maxValue, /*phone,*/ numeric } = require('../../../node_modules/vuelidate/lib/validators')
+const { required, email, maxLength, decimal, minValue, maxValue, /*phone, numeric */} = require('../../../node_modules/vuelidate/lib/validators')
 
 export default {
   name: 'EditInstitution',
   mixins: [validationMixin],
   data () {
     return {
-        lat: 0,
-        lng: 0,
-        countryList: [
+        countryList: [ 
         ],
         countryArList: [
         ]
     }
 },
-  props: [
-    'institutionid'
-  ],
+  props: ['institutionid'],
   created() {
     this.getInstitutionById(this.$route.params.institutionid)
   },  
   validations: {
     institution :{
-      /*nameFr :{
+      nameFr :{
         required,
         maxLength: maxLength(400)
-      },*/
+      },
       nameEn :{
         required,
         maxLength: maxLength(400)
@@ -85,11 +81,11 @@ export default {
         phone :{
           required,
           //phone,
-          numeric,
+          //numeric,
           maxLength: maxLength(30)
         },
         fax :{
-          numeric,
+          //numeric,
           maxLength: maxLength(30)
         }
       }
@@ -104,25 +100,25 @@ computed: {
 
     nameFrErrors () {
       const errors = []
-     /* if (!this.$v.institution.nameFr.$dirty) return errors
+      if (!this.$v.institution.nameFr.$dirty) return errors
       !this.$v.institution.nameFr.maxLength && errors.push('French name must be at max 400 characters long')
-      !this.$v.institution.nameFr.required && errors.push('French name is required')*/
+      !this.$v.institution.nameFr.required && errors.push('French name is required')
 
       return errors
     },
     nameEnErrors () {
       const errors = []
       if (!this.$v.institution.nameEn.$dirty) return errors
-      !this.$v.institution.nameEn.maxLength && errors.push('Name must be at max 400 characters long')
-      !this.$v.institution.nameEn.required && errors.push('Name is required')
+      !this.$v.institution.nameEn.maxLength && errors.push('English name must be at max 400 characters long')
+      !this.$v.institution.nameEn.required && errors.push('English name is required')
 
       return errors
     },
     nameArErrors () {
       const errors = []
       if (!this.$v.institution.nameAr.$dirty) return errors
-      !this.$v.institution.nameAr.maxLength && errors.push('Name must be at max 400 characters long')
-      !this.$v.institution.nameAr.required && errors.push('Name is required')
+      !this.$v.institution.nameAr.maxLength && errors.push('Arabic name must be at max 400 characters long')
+      !this.$v.institution.nameAr.required && errors.push('Arabic name is required')
 
       return errors
     },
@@ -211,7 +207,7 @@ computed: {
       if (!this.$v.institution.contactInfo.phone.$dirty) return errors
       !this.$v.institution.contactInfo.phone.required && errors.push('Phone is required')
       !this.$v.institution.contactInfo.phone.maxLength && errors.push('Phone must be at max 30 characters long')
-      !this.$v.institution.contactInfo.phone.numeric && errors.push('Phone must only contain numbers')
+      //!this.$v.institution.contactInfo.phone.numeric && errors.push('Phone must only contain numbers')
       //!this.$v.institution.contactInfo.phone.phone && errors.push('Must be valid phone number')
 
       return errors
@@ -228,56 +224,26 @@ computed: {
       const errors = []
       if (!this.$v.institution.contactInfo.fax.$dirty) return errors
       !this.$v.institution.contactInfo.fax.maxLength && errors.push('Fax must be at max 30 characters long')
-      !this.$v.institution.contactInfo.fax.numeric && errors.push('Fax must only contain numbers')
+      //!this.$v.institution.contactInfo.fax.numeric && errors.push('Fax must only contain numbers')
 
       return errors
     }
 },
 methods : {
     ...mapActions('institution',['getInstitutionById']),
+    ...mapActions('institution',['editInstitution']),
     
-    async editInstitution() {
+    async updateInstitution() {
 
       this.$v.$touch()
       if (this.$v.$invalid) {
        return;
       }
-
-      /*var dataBody =
-        {
-                "code": this.institution.code,
-                "nameFr": this.institution.nameFr,
-                "nameAr": this.institution.nameAr,
-                "nameEn": this.institution.nameEn,
-                "address": {
-                    "streetFr": this.institution.streetFr,
-                    "streetAr": (this.institution.streetAr == undefined ? null : this.institution.streetAr),
-                    "cityFr": this.institution.cityFr,
-                    "cityAr": (this.institution.cityAr == undefined ? null : this.institution.cityAr),
-                    "countryFr": this.institution.countryFr[0],
-                    "countryAr": (this.institution.countryAr == undefined ? null : this.institution.countryAr[0]),
-                    "longitude": this.institution.address.longitude,
-                    "latitude": this.institution.address.latitude,
-                },
-                "contactInfo": {
-                    "email": this.institution.email,
-                    "phone": this.institution.contactinfo.phone,
-                    "fax": (this.institution.fax == undefined ? null : this.institution.fax),
-                },
-                //"parentId" : "92A17842-A2B9-5F5D-161D-8CBC875BE0C4" //id for USJ institution
-        };*/
-        
+    
       await this.editInstitution(this.institution)
           .then(() => alert("Institution successfully updated"))    // .then(() => this.$router.push("/application/viewinstution?id="+id ))
-          .catch(() => alert("Failure in updating") );
+          .catch(() => alert("Error in updating") );
     },
-    latitudeChange() {
-        this.lat = (this.institution.address.latitude == undefined ? null : this.institution.address.latitude)
-    },
-
-    longitudeChange() {
-      this.lng = (this.institution.address.longitude == undefined ? null : this.institution.address.longitude)
-  },
 
     getCountryList() {
       this.countryList = [

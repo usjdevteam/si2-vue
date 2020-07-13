@@ -9,7 +9,7 @@
                         <h3 class='margin-right-2-p u-spacing u-header-text'>Edit Institution</h3>
                         <v-btn
                         class="ma-1 u-btn u-btn-outlined-primary"
-                        @click="editInstitution"
+                        @click="updateInstitution"
                         >
                         Save
                         </v-btn>
@@ -198,28 +198,48 @@
                                         <span class="u-card-label">
                                             Country 
                                         </span>
-                                    
+                                    <!--
                                         <v-select class="u-textCountry-padding"
                                         v-model="institution.address.countryFr"
                                         id="country" 
                                         name="country"
                                         :items="countryList"
+                                         item-text="name"
+                                         item-value="name"
                                         color ="#031250"
                                         required
                                         outlined
                                         dense
+                                        taggable 
                                         placeholder="Select..."
-                                        @input="$v.institution.countryFr.$touch()"
-                                        @blur="$v.institution.countryFr.$touch()"
+                                        @input="$v.institution.address.countryFr.$touch()"
+                                        @blur="$v.institution.address.countryFr.$touch()"
                                         :error-messages="countryFrErrors"
+                                        return-object
                                         >
-                                           <option v-for="country in countryList" :key="country.id" :value="country.value">{{ country }}</option>
+                                        <option v-if="institution.address.countryFr !== null" selected > {{institution.address.countryFr}} </option>
+                                           <option v-for="country in countryList" :key="country" :value="country">{{ country }}</option>
                                         </v-select>
+                                    -->
+                                        <v-text-field class="u-textCountry-padding"
+                                        v-model="institution.address.countryFr"
+                                        color ="#031250"
+                                        required
+                                        outlined
+                                        disabled
+                                        dense
+                                        @input="$v.institution.address.countryFr.$touch()"
+                                        @blur="$v.institution.address.countryFr.$touch()"
+                                        :error-messages="codeErrors"
+                                        >
+                                            {{institution.address.countryFr ? institution.address.countryFr : null}}
+                                        </v-text-field>
                                     
                                         <span class="u-card-labelArabic">
                                             دولة 
                                         </span>
 
+                                        <!--
                                         <v-select class="u-text-paddingAr"
                                         v-model="institution.address.countryAr"
                                         id="countryAr" 
@@ -230,12 +250,28 @@
                                         outlined
                                         dense
                                         placeholder="...أختر"
-                                        @input="$v.institution.countryAr.$touch()"
-                                        @blur="$v.institution.countryAr.$touch()"
+                                        @input="$v.institution.address.countryAr.$touch()"
+                                        @blur="$v.institution.address.countryAr.$touch()"
                                         :error-messages="countryArErrors"
                                         >
-                                            <option v-for="country in countryArList" :key="country.id" :value="country.value">{{ country }}</option>
+                                            <option v-for="country in countryArList" :key="country" :value="country">{{ country }}</option>
                                         </v-select>
+                                    -->
+
+                                        <v-text-field class="u-text-paddingAr"
+                                            v-model="institution.address.countryAr"
+                                            color ="#031250"
+                                            required
+                                            outlined
+                                            disabled
+                                            dense
+                                            @input="$v.institution.address.countryAr.$touch()"
+                                            @blur="$v.institution.address.countryAr.$touch()"
+                                            :error-messages="codeErrors"
+                                            >
+                                                {{institution.address.countryAr ? institution.address.countryAr : null}}
+                                        </v-text-field>
+                                    
                                     </v-row>
                                     <v-row>
                                         <span class="u-card-labelCity">
@@ -248,8 +284,8 @@
                                         required
                                         outlined
                                         dense
-                                        @input="$v.institution.cityFr.$touch()"
-                                        @blur="$v.institution.cityFr.$touch()"
+                                        @input="$v.institution.address.cityFr.$touch()"
+                                        @blur="$v.institution.address.cityFr.$touch()"
                                         :error-messages="cityFrErrors"
                                         >
                                             {{institution.address.cityFr ? institution.address.cityFr : ''}}
@@ -265,8 +301,8 @@
                                         required
                                         outlined
                                         dense
-                                        @input="$v.institution.cityAr.$touch()"
-                                        @blur="$v.institution.cityAr.$touch()"
+                                        @input="$v.institution.address.cityAr.$touch()"
+                                        @blur="$v.institution.address.cityAr.$touch()"
                                         :error-messages="cityArErrors"
                                         >
                                             {{institution.address.cityAr ? institution.address.cityAr : ''}}
@@ -284,8 +320,8 @@
                                         required
                                         outlined
                                         dense
-                                        @input="$v.institution.streetFr.$touch()"
-                                        @blur="$v.institution.streetFr.$touch()"
+                                        @input="$v.institution.address.streetFr.$touch()"
+                                        @blur="$v.institution.address.streetFr.$touch()"
                                         :error-messages="streetFrErrors"
                                         >
                                             {{institution.address.streetFr ? institution.address.streetFr : ''}}
@@ -301,8 +337,8 @@
                                         required
                                         outlined
                                         dense
-                                        @input="$v.institution.streetAr.$touch()"
-                                        @blur="$v.institution.streetAr.$touch()"
+                                        @input="$v.institution.address.streetAr.$touch()"
+                                        @blur="$v.institution.address.streetAr.$touch()"
                                         :error-messages="streetArErrors"
                                         >
                                             {{institution.address.streetAr ? institution.address.streetAr : ''}}
@@ -320,9 +356,9 @@
                                         required
                                         outlined
                                         dense
-                                        @input="$v.institution.latitude.$touch()"
-                                        @blur="$v.institution.latitude.$touch()"
-                                        @change="latitudeChange"
+                                        @input="$v.institution.address.latitude.$touch()"
+                                        @blur="$v.institution.address.latitude.$touch()"
+                                        
                                         :error-messages="latitudeErrors"
                                         >
                                             {{institution.address.latitude ? institution.address.latitude : 0}}
@@ -341,9 +377,9 @@
                                         required
                                         outlined
                                         dense
-                                        @input="$v.institution.longitude.$touch()"
-                                        @blur="$v.institution.longitude.$touch()"
-                                        @change="longitudeChange"
+                                        @input="$v.institution.address.longitude.$touch()"
+                                        @blur="$v.institution.address.longitude.$touch()"
+                                       
                                         :error-messages="longitudeErrors"
                                         >
                                             {{institution.address.longitude ? institution.address.longitude : 0}}
@@ -360,7 +396,7 @@
                                             >
                                             <iframe width="100%" height="100%"
                                             id="gmap_canvas"
-                                            :src="`https://maps.google.com/maps?q=lebanon&t=&z=13&ie=UTF8&iwloc=&output=embed&q=${this.lat} ${this.lng}&z=14`"
+                                            :src="`https://maps.google.com/maps?q=lebanon&t=&z=13&ie=UTF8&iwloc=&output=embed&q=${this.institution.address.latitude} ${this.institution.address.longitude}&z=14`"
                                             frameborder="0" scrolling="no" 
                                             marginheight="0" marginwidth="0"></iframe>
                                         </div>
@@ -402,8 +438,8 @@
                                         required
                                         outlined
                                         dense
-                                        @input="$v.institution.email.$touch()"
-                                        @blur="$v.institution.email.$touch()"
+                                        @input="$v.institution.contactInfo.email.$touch()"
+                                        @blur="$v.institution.contactInfo.email.$touch()"
                                         :error-messages="emailErrors"
                                         >
                                             {{institution.contactInfo.email ? institution.contactInfo.email : ''}}
@@ -421,8 +457,8 @@
                                         required
                                         outlined
                                         dense
-                                        @input="$v.institution.phone.$touch()"
-                                        @blur="$v.institution.phone.$touch()"
+                                        @input="$v.institution.contactInfo.phone.$touch()"
+                                        @blur="$v.institution.contactInfo.phone.$touch()"
                                         :error-messages="phoneErrors"
                                         >
                                             {{institution.contactInfo.phone ? institution.contactInfo.phone : ''}}
@@ -440,8 +476,8 @@
                                             required
                                             outlined
                                             dense
-                                            @input="$v.institution.fax.$touch()"
-                                            @blur="$v.institution.fax.$touch()"
+                                            @input="$v.institution.contactInfo.fax.$touch()"
+                                            @blur="$v.institution.contactInfo.fax.$touch()"
                                             :error-messages="faxErrors"
                                             >
                                                 {{institution.contactInfo.fax ? institution.contactInfo.fax : ''}}
@@ -464,7 +500,7 @@
                                        <v-col class="col-md-1">
                                             <v-btn                                             
                                             class="ma-1 u-btn u-btn-outlined-primary"
-                                            @click="editInstitution"
+                                            @click="updateInstitution"
                                             >
                                             Save
                                             </v-btn>

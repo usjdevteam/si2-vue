@@ -7,7 +7,8 @@ export default {
         institutionsObject : {
             data : [],
             pagination : {}
-        }
+        },
+        institutionObject : {}
   },
   mutations: {
     getInstitutions(state,response){
@@ -60,10 +61,11 @@ export default {
         })
     },
 
-    editInstitution({ commit }, institutionId, institutionRecord) {
+    editInstitution({ commit }, institutionRecord) {
+
         return new Promise((resolve, reject) => {
 
-            axios({ "url": process.env.VUE_APP_SERVER_API + "/institutions"+ institutionId+"/", method: "PUT" , data: institutionRecord
+            axios({ "url": process.env.VUE_APP_SERVER_API + "/institutions/" + institutionRecord.id + "/", method: "PUT" , data: institutionRecord
                })    
                .then(resp => {
                    
