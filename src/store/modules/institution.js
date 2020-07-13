@@ -7,7 +7,8 @@ export default {
         institutionsObject : {
             data : [],
             pagination : {}
-        }
+        },
+        institutionObject : {}
   },
   mutations: {
     getInstitutions(state,response){

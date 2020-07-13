@@ -64,7 +64,7 @@ export default {
           this.loading=false;
       },
       async viewInstitution(id){
-        this.$router.push("/application/viewinstution?id="+id );
+        this.$router.push("/application/viewinstitution/"+id );
       }
     }
   }

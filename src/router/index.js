@@ -6,7 +6,7 @@ import SignIn from '../components/signIn/SignIn.vue';
 import Application from '../components/layout/ApplicationLayout.vue'
 import Home from '../components/home/Home.vue'
 import InstitutionIndex from '../components/institutions/Index.vue'
-import ViewInstitution from '../components/institution/ViewInstitution.vue'
+import ViewInstitution from '../components/institutions/ViewInstitution.vue'
 
 
 Vue.use(VueRouter);
