@@ -7,7 +7,7 @@
                         <v-row>
                             <div class="form-control">
                               <h3 class="margin-right-2-p" >Announcements</h3>
-                              <hr class="u-hr-small u-hr-red margin-top-2-p">
+                              <hr class="u-hr-small u-hr-red margin-top-1-p">
                               <div class="form-txt">
                                 <p>The 2019-2020 academic year is now open</p>
                                 <p>The admission for the anticipated period is open between July 1st and August 2nd </p>
@@ -25,7 +25,7 @@
                       <v-row>
                             <div class="form-control">
                               <h3 class="margin-right-2-p" >Latest Updates</h3>
-                              <hr class="u-hr-small u-hr-red margin-top-2-p">
+                              <hr class="u-hr-small u-hr-red margin-top-1-p">
                               <div class="form-txt">
                                 <span class="form-txt-small">Version 23.5</span>
                                 <p> Added validation on the Course creation form</p>
