@@ -73,7 +73,7 @@ const routes = [
         props: true ,
         component: EditInstitution,
         meta: { 
-            requiresAuth: false
+            requiresAuth: true
           },
       } 
 

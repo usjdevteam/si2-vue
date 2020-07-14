@@ -64,7 +64,7 @@
 
                     <v-alert
                         v-if="formLoginData.successLogin == false"
-                        class="width-80-p u-alert u-alert-danger-outlined"
+                        class="width-80-p u-alert u-alert-danger-outlined u-super-dense"
                         
                         dense
                         
