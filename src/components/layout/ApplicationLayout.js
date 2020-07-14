@@ -9,14 +9,27 @@ export default {
         zIndex: -1,
         menu: false
       }),
-    //   methods: {
+      methods: {
     //     logout() {
     //       this.$store.dispatch("logout").then(() => {
     //         this.$router.push("/home");
     //       });
-    //     }
-    //   }
-    watch: {
+    //     },
+        goTo(section){
+          switch (section) {
+            case 'institutions':
+              this.$router.push("/application/institutions");
+
+              break;
+          
+            default:
+              break;
+          }
+
+        }
+        
+      },
+      watch: {
       // whenever question changes, this function will run
       menu: function (newMenu) {
         if(newMenu == true)
