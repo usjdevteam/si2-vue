@@ -5,9 +5,11 @@ import store from '../store/index.js'
 import SignIn from '../components/signIn/SignIn.vue';
 import Application from '../components/layout/ApplicationLayout.vue'
 import Home from '../components/home/Home.vue'
+
 import AddInstitution from '../components/institutions/AddInstitution.vue'
 import InstitutionIndex from '../components/institutions/Index.vue'
 import ViewInstitution from '../components/institutions/ViewInstitution.vue'
+import EditInstitution from '../components/institutions/EditInstitution.vue'
 
 
 
@@ -62,7 +64,19 @@ const routes = [
        meta: { 
           requiresAuth: true
        },
-      }
+
+      },
+
+      {
+        path: 'institution/:institutionid',
+        name: 'EditInstitution',
+        props: true ,
+        component: EditInstitution,
+        meta: { 
+            requiresAuth: false
+          },
+      } 
+
     ]
   }
 ];

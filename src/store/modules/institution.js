@@ -77,7 +77,25 @@ export default {
                     reject(err)
                 })
             })
-    }
+    },
+        editInstitution({ commit }, institutionRecord) {
+
+        return new Promise((resolve, reject) => {
+
+            axios({ "url": process.env.VUE_APP_SERVER_API + "/institutions/" + institutionRecord.id + "/", method: "PUT" , data: institutionRecord
+               })    
+               .then(resp => {
+                   
+                   /*commit('getInstitution',resp)*/
+                   resolve(resp)
+                   commit(resp);
+               })
+               .catch(err => {
+                   reject(err)
+               })
+           })
+   },
+
     
   },
   getters: {
