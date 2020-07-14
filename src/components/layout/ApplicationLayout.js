@@ -7,6 +7,7 @@ export default {
         drawer: null,
         overlay: false,
         zIndex: -1,
+        menu: false
       }),
     //   methods: {
     //     logout() {
@@ -15,4 +16,13 @@ export default {
     //       });
     //     }
     //   }
+    watch: {
+      // whenever question changes, this function will run
+      menu: function (newMenu) {
+        if(newMenu == true)
+          this.overlay = true;
+        else
+          this.overlay = false;
+      }
+    }
 }

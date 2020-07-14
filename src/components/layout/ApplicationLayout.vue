@@ -55,27 +55,27 @@
             </v-list>
           </v-menu> -->
 
-
     <!-- GEO -->
       <v-menu
-        v-model="menu"
         :close-on-content-click="false"
         :nudge-width="200"
         offset-y
         offset-x
+        v-model="menu"
       >
         <template v-slot:activator="{ on }">
-          <v-btn icon v-bind="attrs" v-on="on">
-              <v-avatar >
+          <v-btn icon v-on="on" >
+              <v-avatar>
                   <v-img
                       class="u-avatar"
                       :src="require('@/assets/images/avatar.png')"
+                      @click="overlay = !overlay" 
                   ></v-img>
                 </v-avatar>
             </v-btn>
         </template>
   
-        <v-card>
+        <v-card >
             <div class="col-md-12 u-popup">
                 <div class="row">
                   <div class="col-md-3">
@@ -177,6 +177,7 @@
         </v-card>
       </v-menu>
 
+     
 
 
         </div>
@@ -533,6 +534,10 @@
 
 
     </v-list-item-group>
+
+    <v-overlay absolute :value="overlay">
+    </v-overlay>
+
     </v-navigation-drawer>
 
     <v-main>
@@ -540,7 +545,11 @@
         <router-view></router-view>
       </div>
 
+      <v-overlay absolute :value="overlay">
+      </v-overlay>
+
     </v-main>
+
   </v-app>
 </template>
 <script src="./ApplicationLayout.js"> </script>
