@@ -26,7 +26,7 @@ const routes = [
     name : "Application",
     component : Application,
     meta: { 
-        requiresAuth: false
+        requiresAuth: true
       },
     children : [
 
@@ -35,7 +35,7 @@ const routes = [
             name: 'Home',
             component: Home,
             meta: { 
-                requiresAuth: false
+                requiresAuth: true
               },
         },
         {
@@ -43,7 +43,7 @@ const routes = [
                name: 'AddInstitution',
                component: AddInstitution,
                meta: { 
-                   requiresAuth: false
+                   requiresAuth: true
                  },
         },
         {
