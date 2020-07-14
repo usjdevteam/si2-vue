@@ -41,7 +41,8 @@ export default {
 
           return new Promise((resolve, reject) => {
               commit('auth_request')
-              axios({ url: process.env.VUE_APP_SERVER_API + '/account/login', data: user, method: 'POST' })
+             // axios({ url: process.env.VUE_APP_SERVER_API + '/account/login', data: user, method: 'POST' })
+              axios({ url: 'https://si2serverdevelopmentapi.azurewebsites.net/api' + '/account/login', data: user, method: 'POST' })
                   .then(resp => {
                       const token = "Bearer " + resp.data.token
                       const user = resp.data.user
