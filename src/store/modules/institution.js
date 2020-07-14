@@ -46,7 +46,8 @@ export default {
         })
     },
 
-    getInstitutionById({ commit }, institutionId ) {      
+    getInstitutionById({ commit }, institutionId ) {
+                           
         return new Promise((resolve, reject) => {
             axios({ url: process.env.VUE_APP_SERVER_API + '/institutions/'+ institutionId+"/", method: 'GET' })
                 .then(resp => {
@@ -60,11 +61,11 @@ export default {
                 })
         })
     },
-    addInstitution({ commit }, institutionRecord) {
+        addInstitution({ commit }, institutionRecord) {
 
         return new Promise((resolve, reject) => {
 
-             axios({ "url": process.env.VUE_APP_SERVER_API + "/institutions", method: "POST" , data: institutionRecord
+             axios({ "url": process.env.VUE_APP_SERVER_API + "/institutions", method: "POST" , data: institutionRecord/*dataBody*/
                 })    
                 .then(resp => {
                     
@@ -77,8 +78,7 @@ export default {
                 })
             })
     },
-    
-    editInstitution({ commit }, institutionRecord) {
+        editInstitution({ commit }, institutionRecord) {
 
         return new Promise((resolve, reject) => {
 
@@ -101,5 +101,3 @@ export default {
 
   }
 }
-
-
