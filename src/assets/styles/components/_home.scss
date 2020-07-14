@@ -1,0 +1,40 @@
+@import "../style.scss";
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.8rem 0.75rem;
+    margin-left: 0.75rem;
+    background-color: $white!important;
+    background-clip: padding-box;
+    border: 1px solid $white-gray ;
+    border-radius: 0.75rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  }
+
+  h3{
+    color: $dark-blue;
+    font-family: $type-1 !important;
+    font-size: 1.38rem;
+    line-height: 2.0625rem;
+    text-align: left;
+  }
+
+  .form-txt p{
+    color: $light-gray;
+    font-family: $type-1 !important;
+    font-size: 1.1rem;
+    line-height: 1.625rem;
+    text-align: left;
+  }
+
+  .form-txt-small{
+    color: $white-gray;
+    font-family: $type-1 !important;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    text-align: left;
+  }

@@ -10,7 +10,6 @@ export default {
   }),
   created() {
     this.getInstitutionById(this.$route.params.institutionid)
-    console.log(this.$route.params.institutionid)
   },
   mounted(){
 

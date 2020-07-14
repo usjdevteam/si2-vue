@@ -32,6 +32,10 @@
 /* -------------------------------------------- */
 
 /* Top -----------------  */
+.margin-top-1-p{
+    margin-top: 1%!important;
+}
+
 .margin-top-2-p{
     margin-top: 2%!important;
 }
@@ -47,7 +51,19 @@
 .margin-right-5-p{
     margin-right: 5%!important;
 }
-
+.margin-middle-10-p{
+    margin-left: 10% !important;
+    margin-right: 10% !important;
+}
+.margin-left-35-p{
+    margin-left: 35% !important;
+}
+.margin-bottom-4-p{
+    margin-bottom: 4% !important;
+}
+.no-padding-bottom{
+    padding-bottom: 0 !important;
+}
 /* ----------------- HR ----------------- 
 /* -------------------------------------------- */
 hr.u-hr{
@@ -55,6 +71,12 @@ hr.u-hr{
     height: 2px;
     margin-top: 5%;
     margin-bottom: 5%;
+}
+hr.u-hr-small{
+    width: 5%;
+    height: 2px;
+    margin-top: 5%;
+    margin-bottom: 2%;
 }
 hr.u-hr-red{
     background: $red;
@@ -67,7 +89,10 @@ a.u-link{
     color: $blue !important;
     font-family: $type-1 !important;
 }
-
+a.u-link-danger{
+    color: $red !important;
+    font-family: $type-1 !important;
+}
 /* ----------------- Float ----------------- 
 /* -------------------------------------------- */
 .pull-right{
