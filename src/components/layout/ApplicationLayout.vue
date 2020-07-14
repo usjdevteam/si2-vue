@@ -1,4 +1,5 @@
 <template>
+  
   <v-app>
       <v-app-bar
       clipped-left
@@ -31,7 +32,7 @@
           ></v-img>
         </v-avatar>
         <div>
-          <v-menu left bottom>
+          <!-- <v-menu left bottom>
               <template v-slot:activator="{ on, attrs }">
                 <v-btn icon v-bind="attrs" v-on="on">
                   <v-avatar >
@@ -52,7 +53,133 @@
                 <v-list-item-title>Option {{ n }}</v-list-item-title>
               </v-list-item>
             </v-list>
-          </v-menu>
+          </v-menu> -->
+
+    <!-- GEO -->
+      <v-menu
+        :close-on-content-click="false"
+        :nudge-width="200"
+        offset-y
+        offset-x
+        v-model="menu"
+      >
+        <template v-slot:activator="{ on }">
+          <v-btn icon v-on="on" >
+              <v-avatar>
+                  <v-img
+                      class="u-avatar"
+                      :src="require('@/assets/images/avatar.png')"
+                      @click="overlay = !overlay" 
+                  ></v-img>
+                </v-avatar>
+            </v-btn>
+        </template>
+  
+        <v-card >
+            <div class="col-md-12 u-popup">
+                <div class="row">
+                  <div class="col-md-3">
+                    <v-avatar >
+                      <v-img
+                          class="u-avatar"
+                          :src="require('@/assets/images/avatar.png')"
+                      ></v-img>
+                    </v-avatar>
+                  </div>
+                  <div class="col-md-8 no-padding-bottom">
+                    <h4 class="person-name">Antoinette Tamer</h4>
+                    <p>Head of Unit - Teacher - Student</p>
+                  </div>
+                </div>
+                <div class="row text-center">
+                  <a class="text-center u-link-danger text-bold margin-left-35-p margin-bottom-4-p">View Profile</a>
+                </div>
+
+                  <div class="row">
+                    <div class="col-md-12 u-list-item u-section-item">
+                      <span>Account</span>
+                    </div>
+                   
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 u-list-item u-sub-item">
+                      <span>Settings</span>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 u-list-item u-sub-item">
+                      <span>Change Password</span>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 u-list-item u-section-item">
+                      <span>Manage</span>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 u-list-item u-sub-item">
+                      <span>Subscriptions</span>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 u-list-item u-sub-item">
+                      <span>Sign Out</span>
+                    </div>
+                  </div>
+            </div>
+          <!-- <v-list>
+            <v-list-tile avatar>
+              <v-list-tile-avatar>
+                <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John">
+              </v-list-tile-avatar>
+  
+              <v-list-tile-content>
+                <v-list-tile-title>John Leider</v-list-tile-title>
+                <v-list-tile-sub-title>Founder of Vuetify.js</v-list-tile-sub-title>
+              </v-list-tile-content>
+  
+              <v-list-tile-action>
+                <v-btn
+                  :class="fav ? 'red--text' : ''"
+                  icon
+                  @click="fav = !fav"
+                >
+                  <v-icon>favorite</v-icon>
+                </v-btn>
+              </v-list-tile-action>
+            </v-list-tile>
+          </v-list> -->
+  
+         
+  
+          <!-- <v-list>
+            <v-list-tile>
+              <v-list-tile-action>
+                <v-switch v-model="message" color="purple"></v-switch>
+              </v-list-tile-action>
+              <v-list-tile-title>Enable messages</v-list-tile-title>
+            </v-list-tile>
+  
+            <v-list-tile>
+              <v-list-tile-action>
+                <v-switch v-model="hints" color="purple"></v-switch>
+              </v-list-tile-action>
+              <v-list-tile-title>Enable hints</v-list-tile-title>
+            </v-list-tile>
+          </v-list> -->
+  
+          <!-- <v-card-actions>
+            <v-spacer></v-spacer>
+  
+            <v-btn flat @click="menu = false">Cancel</v-btn>
+            <v-btn color="primary" flat @click="menu = false">Save</v-btn>
+          </v-card-actions> -->
+        </v-card>
+      </v-menu>
+
+     
+
+
         </div>
 
     </v-app-bar>
@@ -407,6 +534,10 @@
 
 
     </v-list-item-group>
+
+    <v-overlay absolute :value="overlay">
+    </v-overlay>
+
     </v-navigation-drawer>
 
     <v-main>
@@ -414,7 +545,11 @@
         <router-view></router-view>
       </div>
 
+      <v-overlay absolute :value="overlay">
+      </v-overlay>
+
     </v-main>
+
   </v-app>
 </template>
 <script src="./ApplicationLayout.js"> </script>
