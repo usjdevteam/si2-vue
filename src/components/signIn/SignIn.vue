@@ -12,7 +12,7 @@
                 max-height="60"
                 contain
             ></v-img>
-            
+            {{getRealDate}}
             <v-spacer></v-spacer>
             
             <v-btn class="ma-2 u-btn u-btn-outlined-primary u-btn-lg" large>Sign in</v-btn>
