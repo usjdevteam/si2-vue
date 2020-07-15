@@ -34,6 +34,23 @@ export default {
               break;
           }
 
+        },
+        isActiveTab(){
+          var path = this.$route.path;
+          switch (path) {
+            case '/application/home':
+              return 0
+            case '/application/institutions':
+              return 1
+            case '/application/institutions/add':
+              return 2
+              
+            default:
+              break;
+          }
+        },
+        goToHomePage(){
+          this.$router.push("/application/home");
         }
         
       },

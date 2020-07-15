@@ -68,10 +68,14 @@
     }
 
     .u-avatar {
-      width: 3.5vw !important;
+      width: 3vw !important;
     }
 }
-
+#btn-avatar{
+  .v-btn__content{
+    flex : 0.4 0 auto !important;
+  }
+}
 .u-dialog-content {
   background-color: #212121;
   bottom: 0;
