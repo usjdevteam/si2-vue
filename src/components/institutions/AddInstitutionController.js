@@ -288,6 +288,7 @@ methods : {
                        window.location.reload()
                       })    // .then(() => this.$router.push("/application/viewinstution?id="+id ))
           .catch(() => {alert("Error in insertion") });
-    },
+    }
+
   }
 }

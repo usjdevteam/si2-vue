@@ -16,6 +16,7 @@
     font-family: $type-1 !important;
     text-align: left !important;
     font-size: 1rem !important;
+    font-style: italic !important;
 }
 
 .u-card-labelEmail {
@@ -41,21 +42,22 @@
 }
 
 .u-card-labelArabic {
-    text-align: right !important;
+ 
     font-family: $type-1 !important;
     color: $gray !important;
     padding-left: 3.5rem !important;
-    padding-right: 1rem !important;
+    padding-right: 1.5rem !important;
     padding-top: 0.6rem !important;
     vertical-align: center !important;
     font-size: 1.2rem !important;
 }
 
 .u-card-labelCountryArabic {
-    text-align: right !important;
+    text-align: left !important;
     font-family: $type-1 !important;
     color: $gray !important;
-    padding-right: 3rem !important;
+    padding-right: 5.8rem !important;
+    padding-left: 1rem !important;
     padding-top: 0.6rem !important;
     vertical-align: center !important;
     font-size: 1.2rem !important;
@@ -120,8 +122,8 @@
     text-align: right !important;
     font-family: $type-1 !important;
     color: $gray !important;
-    padding-right: 2.1rem !important;
-    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    padding-left: 0.7rem !important;
     padding-top: 0.6rem !important;
     vertical-align: center !important;
     font-size: 1.2rem !important;
@@ -159,6 +161,5 @@
     padding-bottom: 2rem !important;
 }
 
-.mapouter{position:relative;text-align:right;height:45vh;width:70vw;}
-.gmap_canvas {overflow:hidden;background:none!important;height:45vh;width:70vw;
-            padding-right: 5%; padding-left: 11%;}
+.gmap_canvas {overflow:hidden;background:none!important;height:40vh !important;width:80vw !important;
+            padding-right: 2% !important; padding-left: 13% !important;}

@@ -206,12 +206,14 @@
                                         >
                                            <option v-for="country in countryList" :key="country" :value="country">{{ country }}</option>
                                         </v-select>
-                                    
-                                        <span class="u-card-labelArabic">
+                                    </v-row>
+
+                                    <v-row>
+                                        <span class="u-card-labelCountryArabic">
                                             دولة 
                                         </span>
 
-                                        <v-select class="u-text-paddingAr"
+                                        <v-select class="u-text-padding"
                                         v-model="institution.address.countryAr"
                                         id="countryAr" 
                                         name="countryAr"
@@ -228,6 +230,7 @@
                                             <option v-for="country in countryArList" :key="country" :value="country">{{ country }}</option>
                                         </v-select>
                                     </v-row>
+
                                     <v-row>
                                         <span class="u-card-labelCity">
                                             City 
@@ -307,9 +310,7 @@
                                         @blur="$v.institution.address.latitude.$touch()"
                                         :error-messages="latitudeErrors"
                                         ></v-text-field>
-                                    </v-row>
-
-                                    <v-row>
+                                   
                                         <span class="u-card-labelLongitude">
                                             Longitude 
                                         </span>
@@ -327,11 +328,12 @@
                                     </v-row>
 
                                     <v-row>
+
                                          <span class="u-card-labelMap">
                                             Map <br/>Location 
                                         </span>
-
-                                        <div class="mapouter">
+        
+                                       
                                         <div class="gmap_canvas"   
                                             >
                                             <iframe width="100%" height="100%"
@@ -340,8 +342,7 @@
                                             frameborder="0" scrolling="no" 
                                             marginheight="0" marginwidth="0"></iframe>
                                         </div>
-
-                                    </div>
+                                  
                                   </v-row>
 
 
