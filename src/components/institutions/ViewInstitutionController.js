@@ -19,5 +19,9 @@ export default {
   },
   methods : {
     ...mapActions('institution',['getInstitutionById']),
+    editInstitution(){
+      var id = this.$route.params.institutionid;
+      this.$router.push("/application/institutions/edit/"+id );
+    }
   } 
 }
