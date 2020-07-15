@@ -23,7 +23,7 @@
                 <div class="col-md-12">
                     
                     <v-form
-                        ref="form"
+                        ref="form" id="formAdd"
                     >
 
                     <div>
@@ -41,13 +41,13 @@
                                 <v-window-item >
                                 <v-card-text>
                                     <v-text-field
-                                    v-model="formAddInstitution.nameFr"
+                                    v-model="institution.nameFr"
                                     color ="#031250"
                                     required
                                     outlined
                                     dense
-                                    @input="$v.formAddInstitution.nameFr.$touch()"
-                                    @blur="$v.formAddInstitution.nameFr.$touch()"
+                                    @input="$v.institution.nameFr.$touch()"
+                                    @blur="$v.institution.nameFr.$touch()"
                                     :error-messages="nameFrErrors"
                                     ></v-text-field>
 
@@ -77,13 +77,13 @@
                                 <v-window-item >
                                 <v-card-text>
                                     <v-text-field
-                                    v-model="formAddInstitution.nameEn"
+                                    v-model="institution.nameEn"
                                     color ="#031250"
                                     required
                                     outlined
                                     dense
-                                    @input="$v.formAddInstitution.nameEn.$touch()"
-                                    @blur="$v.formAddInstitution.nameEn.$touch()"
+                                    @input="$v.institution.nameEn.$touch()"
+                                    @blur="$v.institution.nameEn.$touch()"
                                     :error-messages="nameEnErrors"
                                     ></v-text-field>
 
@@ -113,13 +113,13 @@
                                 <v-window-item >
                                 <v-card-text>
                                     <v-text-field
-                                    v-model="formAddInstitution.nameAr"
+                                    v-model="institution.nameAr"
                                     color ="#031250"
                                     required
                                     outlined
                                     dense
-                                    @input="$v.formAddInstitution.nameAr.$touch()"
-                                    @blur="$v.formAddInstitution.nameAr.$touch()"
+                                    @input="$v.institution.nameAr.$touch()"
+                                    @blur="$v.institution.nameAr.$touch()"
                                     :error-messages="nameArErrors"
                                     ></v-text-field>
 
@@ -149,13 +149,13 @@
                                 <v-window-item >
                                 <v-card-text>
                                     <v-text-field
-                                    v-model="formAddInstitution.code "
+                                    v-model="institution.code "
                                     color ="#031250"
                                     required
                                     outlined
                                     dense
-                                    @input="$v.formAddInstitution.code.$touch()"
-                                    @blur="$v.formAddInstitution.code.$touch()"
+                                    @input="$v.institution.code.$touch()"
+                                    @blur="$v.institution.code.$touch()"
                                     :error-messages="codeErrors"
                                     ></v-text-field>
 
@@ -189,9 +189,9 @@
                                         <span class="u-card-label">
                                             Country 
                                         </span>
-                                    
+
                                         <v-select class="u-textCountry-padding"
-                                        v-model="formAddInstitution.countryFr"
+                                        v-model="institution.address.countryFr"
                                         id="country" 
                                         name="country"
                                         :items="countryList"
@@ -200,11 +200,11 @@
                                         outlined
                                         dense
                                         placeholder="Select..."
-                                        @input="$v.formAddInstitution.countryFr.$touch()"
-                                        @blur="$v.formAddInstitution.countryFr.$touch()"
+                                        @input="$v.institution.address.countryFr.$touch()"
+                                        @blur="$v.institution.address.countryFr.$touch()"
                                         :error-messages="countryFrErrors"
                                         >
-                                           <option v-for="country in countryList" :key="country.id" :value="country.value">{{ country }}</option>
+                                           <option v-for="country in countryList" :key="country" :value="country">{{ country }}</option>
                                         </v-select>
                                     
                                         <span class="u-card-labelArabic">
@@ -212,7 +212,7 @@
                                         </span>
 
                                         <v-select class="u-text-paddingAr"
-                                        v-model="formAddInstitution.countryAr"
+                                        v-model="institution.address.countryAr"
                                         id="countryAr" 
                                         name="countryAr"
                                         :items="countryArList"
@@ -221,11 +221,11 @@
                                         outlined
                                         dense
                                         placeholder="...أختر"
-                                        @input="$v.formAddInstitution.countryAr.$touch()"
-                                        @blur="$v.formAddInstitution.countryAr.$touch()"
+                                        @input="$v.institution.address.countryAr.$touch()"
+                                        @blur="$v.institution.address.countryAr.$touch()"
                                         :error-messages="countryArErrors"
                                         >
-                                            <option v-for="country in countryArList" :key="country.id" :value="country.value">{{ country }}</option>
+                                            <option v-for="country in countryArList" :key="country" :value="country">{{ country }}</option>
                                         </v-select>
                                     </v-row>
                                     <v-row>
@@ -234,13 +234,13 @@
                                         </span>
 
                                         <v-text-field class="u-text-padding"
-                                        v-model="formAddInstitution.cityFr"
+                                        v-model="institution.address.cityFr"
                                         color ="#031250"
                                         required
                                         outlined
                                         dense
-                                        @input="$v.formAddInstitution.cityFr.$touch()"
-                                        @blur="$v.formAddInstitution.cityFr.$touch()"
+                                        @input="$v.institution.address.cityFr.$touch()"
+                                        @blur="$v.institution.address.cityFr.$touch()"
                                         :error-messages="cityFrErrors"
                                         ></v-text-field>
 
@@ -249,13 +249,13 @@
                                         </span>
 
                                         <v-text-field class="u-text-padding"
-                                        v-model="formAddInstitution.cityAr"
+                                        v-model="institution.address.cityAr"
                                         color ="#031250"
                                         required
                                         outlined
                                         dense
-                                        @input="$v.formAddInstitution.cityAr.$touch()"
-                                        @blur="$v.formAddInstitution.cityAr.$touch()"
+                                        @input="$v.institution.address.cityAr.$touch()"
+                                        @blur="$v.institution.address.cityAr.$touch()"
                                         :error-messages="cityArErrors"
                                         ></v-text-field>
                                     </v-row>
@@ -266,13 +266,13 @@
                                         </span>
 
                                         <v-text-field class="u-text-padding"
-                                        v-model="formAddInstitution.streetFr"
+                                        v-model="institution.address.streetFr"
                                         color ="#031250"
                                         required
                                         outlined
                                         dense
-                                        @input="$v.formAddInstitution.streetFr.$touch()"
-                                        @blur="$v.formAddInstitution.streetFr.$touch()"
+                                        @input="$v.institution.address.streetFr.$touch()"
+                                        @blur="$v.institution.address.streetFr.$touch()"
                                         :error-messages="streetFrErrors"
                                         ></v-text-field>
 
@@ -281,13 +281,13 @@
                                         </span>
 
                                         <v-text-field class="u-text-padding"
-                                        v-model="formAddInstitution.streetAr"
+                                        v-model="institution.address.streetAr"
                                         color ="#031250"
                                         required
                                         outlined
                                         dense
-                                        @input="$v.formAddInstitution.streetAr.$touch()"
-                                        @blur="$v.formAddInstitution.streetAr.$touch()"
+                                        @input="$v.institution.address.streetAr.$touch()"
+                                        @blur="$v.institution.address.streetAr.$touch()"
                                         :error-messages="streetArErrors"
                                         ></v-text-field>
                                     </v-row>
@@ -298,14 +298,13 @@
                                         </span>
 
                                         <v-text-field class="u-text-padding"
-                                        v-model="formAddInstitution.latitude"
+                                        v-model="institution.address.latitude"
                                         color ="#031250"
                                         required
                                         outlined
                                         dense
-                                        @input="$v.formAddInstitution.latitude.$touch()"
-                                        @blur="$v.formAddInstitution.latitude.$touch()"
-                                        @change="latitudeChange"
+                                        @input="$v.institution.address.latitude.$touch()"
+                                        @blur="$v.institution.address.latitude.$touch()"
                                         :error-messages="latitudeErrors"
                                         ></v-text-field>
                                     </v-row>
@@ -316,14 +315,13 @@
                                         </span>
 
                                         <v-text-field class="u-text-padding"
-                                        v-model="formAddInstitution.longitude"
+                                        v-model="institution.address.longitude"
                                         color ="#031250"
                                         required
                                         outlined
                                         dense
-                                        @input="$v.formAddInstitution.longitude.$touch()"
-                                        @blur="$v.formAddInstitution.longitude.$touch()"
-                                        @change="longitudeChange"
+                                        @input="$v.institution.address.longitude.$touch()"
+                                        @blur="$v.institution.address.longitude.$touch()"
                                         :error-messages="longitudeErrors"
                                         ></v-text-field>
                                     </v-row>
@@ -338,10 +336,11 @@
                                             >
                                             <iframe width="100%" height="100%"
                                             id="gmap_canvas"
-                                            :src="`https://maps.google.com/maps?q=lebanon&t=&z=13&ie=UTF8&iwloc=&output=embed&q=${this.lat} ${this.lng}&z=14`"
+                                            :src="`https://maps.google.com/maps?q=lebanon&t=&z=13&ie=UTF8&iwloc=&output=embed&q=${this.institution.address.latitude} ${this.institution.address.longitude}&z=14`"
                                             frameborder="0" scrolling="no" 
                                             marginheight="0" marginwidth="0"></iframe>
                                         </div>
+
                                     </div>
                                   </v-row>
 
@@ -375,13 +374,13 @@
                                         </span>
 
                                         <v-text-field class="u-text-padding"
-                                        v-model="formAddInstitution.email"
+                                        v-model="institution.contactInfo.email"
                                         color ="#031250"
                                         required
                                         outlined
                                         dense
-                                        @input="$v.formAddInstitution.email.$touch()"
-                                        @blur="$v.formAddInstitution.email.$touch()"
+                                        @input="$v.institution.contactInfo.email.$touch()"
+                                        @blur="$v.institution.contactInfo.email.$touch()"
                                         :error-messages="emailErrors"
                                         ></v-text-field>
                                     </v-row>
@@ -392,13 +391,13 @@
                                         </span>
 
                                         <v-text-field class="u-text-padding"
-                                        v-model="formAddInstitution.phone"
+                                        v-model="institution.contactInfo.phone"
                                         color ="#031250"
                                         required
                                         outlined
                                         dense
-                                        @input="$v.formAddInstitution.phone.$touch()"
-                                        @blur="$v.formAddInstitution.phone.$touch()"
+                                        @input="$v.institution.contactInfo.phone.$touch()"
+                                        @blur="$v.institution.contactInfo.phone.$touch()"
                                         :error-messages="phoneErrors"
                                         ></v-text-field>
                                     </v-row>
@@ -409,13 +408,13 @@
                                             </span>
 
                                             <v-text-field class="u-text-padding"
-                                            v-model="formAddInstitution.fax"
+                                            v-model="institution.contactInfo.fax"
                                             color ="#031250"
                                             required
                                             outlined
                                             dense
-                                            @input="$v.formAddInstitution.fax.$touch()"
-                                            @blur="$v.formAddInstitution.fax.$touch()"
+                                            @input="$v.institution.contactInfo.fax.$touch()"
+                                            @blur="$v.institution.contactInfo.fax.$touch()"
                                             :error-messages="faxErrors"
                                             ></v-text-field>
                                     </v-row>
@@ -427,24 +426,27 @@
                             <v-divider></v-divider>
                         </v-card>
 
-                        <v-layout row>
-                            <v-flex md12>
-                                <div class="col-md-12">
-                                    <v-row>
-                                       <v-col class="col-md-11">
-                                       </v-col>
-                                       <v-col class="col-md-1">
-                                            <v-btn                                             
+                         <div class="col-md-12 pt-2 no-padding">
+                            <div class="row">
+                            
+                                <div class="col-md-2">
+                                </div>
+
+                                <v-spacer></v-spacer>
+                                <div class="col-md-5 ">
+                                    <div class="text-right">
+                                        <v-btn                                             
                                             class="ma-1 u-btn u-btn-outlined-primary"
                                             @click="insertNewInstitution"
                                             >
                                             Add New
                                             </v-btn>
-                                       </v-col>
-                                    </v-row>
+                                    </div>
+                                    
                                 </div>
-                            </v-flex>
-                        </v-layout>
+                            </div>
+                        </div>
+                        
 
                     </div>
                     </v-form>
