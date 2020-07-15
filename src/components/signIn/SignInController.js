@@ -22,7 +22,7 @@ export default {
       },
       password :{
         required,
-        minLength: minLength( )
+        minLength: minLength(8)
       }
     }
   },

@@ -6,7 +6,7 @@
                     <div class="col-md-12">
                         <v-row>
                             <h3 class="margin-right-2-p">Institutions</h3>
-                            <v-btn class="ma-1 u-btn u-btn-outlined-primary">Add New</v-btn>
+                            <v-btn class="ma-1 u-btn u-btn-outlined-primary" @click="addInstitution">Add New</v-btn>
                         </v-row>
                     </div>
                 </v-flex>
@@ -41,7 +41,7 @@
                         >
                         <template #item.nameFr="{ item }"><a @click="viewInstitution(item.id)">{{item.nameFr}}</a></template>
                         <template #item.full_address="{ item }">{{item.address.streetFr}} - {{item.address.cityFr}} - {{item.address.countryFr}}</template>
-                        <template #item.editRow="{ item }"> <font-awesome-icon class="u-cursor" icon="edit" size="lg" @click="viewInstitution(item.id)" /></template>
+                        <template #item.editRow="{ item }"> <font-awesome-icon class="u-cursor" icon="edit" size="lg" @click="editInstitution(item.id)" /></template>
                         </v-data-table>
                         <div class="col-md-12 pt-2 no-padding" v-if="institutions.data.length > 0">
                             <div class="row">

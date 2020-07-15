@@ -6,7 +6,7 @@
                     <div class="col-md-12">
                         <v-row>
                             <h3 class="margin-right-2-p dark-blue-color">View Institution</h3>
-                            <v-btn class="ma-1 u-btn u-btn-outlined-primary">Edit</v-btn>
+                            <v-btn class="ma-1 u-btn u-btn-outlined-primary" @click="editInstitution">Edit</v-btn>
                         </v-row>
                     </div>
                 </v-flex>

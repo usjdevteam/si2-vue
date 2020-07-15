@@ -53,7 +53,7 @@ export default {
     getInstitutionById({ commit }, institutionId ) {
                            
         return new Promise((resolve, reject) => {
-            axios({ url: process.env.VUE_APP_SERVER_API + '/institutions/'+ institutionId+"/", method: 'GET' })
+            axios({ url: process.env.VUE_APP_SERVER_API + '/institutions/'+ institutionId+"/v1", method: 'GET' })
                 .then(resp => {
                     commit('getInstitution',resp)
                     resolve(resp)

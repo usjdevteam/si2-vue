@@ -73,9 +73,6 @@ export default {
           .catch(() => console.log("f") );
           this.loading=false;
       },
-      async viewInstitution(id){
-        this.$router.push("/application/viewinstitution/"+id );
-      },
       isActivePage(pageNumber){
         var result =  false;
 
@@ -109,9 +106,15 @@ export default {
         
         return result;
       },
-      // switchPage(toPage){
-      //   switch (direction) {
-      // },
+      addInstitution(){
+        this.$router.push("/application/institutions/add");
+      },
+      viewInstitution(id){
+        this.$router.push("/application/institutions/view/"+id );
+      },
+      editInstitution(id){
+        this.$router.push("/application/institutions/edit/"+id );
+      },
       gotoPageInstutionTable(direction){
         var pNumber = this.pageInstitutionOption.pageNumber;
         switch (direction) {
