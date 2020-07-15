@@ -5,8 +5,8 @@
                 <v-flex md12>
                     <div class="col-md-12">
                         <v-row>
-                            <h3 class="margin-right-2-p dark-blue-color">View Institution</h3>
-                            <v-btn class="ma-1 u-btn u-btn-outlined-primary" @click="editInstitution">Edit</v-btn>
+                            <h3 class="margin-right-2-p dark-blue-color line-height-2-p5-rem">View Institution</h3>
+                            <v-btn class="ma-1 u-btn u-btn-outlined-primary u-button-side" @click="editInstitution"><span class="padding-middle-10-p">Edit</span></v-btn>
                         </v-row>
                     </div>
                 </v-flex>
@@ -34,7 +34,7 @@
                                 <label class="control-label">Code:</label>
                                 </div>
                                 <div class="col-md-10">
-                                    <label class="control-label-data">{{institution.code}}</label>
+                                    <p class="control-label-data">{{institution.code}}</p>
                                 </div>
                             </div>
 
@@ -44,8 +44,25 @@
                                 </div>
                                 <div class="col-md-10">
                                     <p class="control-label-data">{{institution.address.streetFr+", "+institution.address.cityFr+", "+institution.address.countryFr}}</p>
-                                    <p class="control-label-data">{{institution.address.streetAr+", "+institution.address.cityAr+", "+institution.address.countryAr}}</p>
+                                    <p class="control-label-data">{{ (institution.address.streetAr !=null ?  institution.address.streetAr : "")
+                                                                 + ( institution.address.cityAr? ", " + institution.address.cityAr : "")
+                                                                 + ( institution.address.countryAr? ", " + institution.address.countryAr : "")}}</p>
                                 
+
+                                    <div class="col-md-12 no-padding">
+                                    
+                                        <div>
+                                            <div style="height:30vh;">   
+                                                
+                                                <iframe width="45%"  height="100%"
+                                                id="gmap_canvas"
+                                                :src="`https://maps.google.com/maps?q=lebanon&t=&z=13&ie=UTF8&iwloc=&output=embed&q=${institution.address.latitude} ${institution.address.longitude}&z=14`"
+                                                frameborder="0" scrolling="no" 
+                                                marginheight="0" marginwidth="0"></iframe>
+                                            </div>
+                                        </div>
+                                  </div>
+
                                 </div>
                             </div>
 
@@ -55,7 +72,7 @@
                                 <label class="control-label">Email:</label>
                                 </div>
                                 <div class="col-md-10">
-                                    <label class="control-label-data">{{institution.contactInfo.email}}</label>
+                                    <label class="control-label-data">{{institution.contactInfo.email || " - "}}</label>
                                     
                                 </div>
                             </div>
@@ -65,7 +82,7 @@
                                 <label class="control-label">Phone:</label>
                                 </div>
                                 <div class="col-md-10">
-                                    <label class="control-label-data">{{institution.contactInfo.phone}}</label>
+                                    <label class="control-label-data">{{institution.contactInfo.phone || " - "}}</label>
                                     
                                 </div>
                             </div>
@@ -75,7 +92,7 @@
                                 <label class="control-label">Fax:</label>
                                 </div>
                                 <div class="col-md-10">
-                                    <label class="control-label-data">{{institution.contactInfo.fax}}</label>
+                                    <label class="control-label-data">{{institution.contactInfo.fax || " - "}}</label>
                                     
                                 </div>
                             </div>

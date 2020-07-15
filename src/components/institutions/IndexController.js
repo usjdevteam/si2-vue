@@ -80,6 +80,13 @@ export default {
 
         return result;
       },
+      isNotActivePage(pageNumber){
+        var result =  true;
+
+        if (pageNumber == this.pageInstitutionOption.pageNumber ) result = false;
+
+        return result;
+      },
       showPageNumber(pageNumber){
         var result =  false;
 

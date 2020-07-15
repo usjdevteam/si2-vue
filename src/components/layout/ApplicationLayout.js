@@ -17,6 +17,10 @@ export default {
     //     },
         routePages(section){
           switch (section) {
+            case 'home':
+              this.$router.push("/application/home");
+
+              break;
             case 'institutions':
               this.$router.push("/application/institutions");
 

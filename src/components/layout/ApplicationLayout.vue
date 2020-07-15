@@ -209,7 +209,7 @@
       <v-list>
           <v-expansion-panels class="u-sideMenu-Panel">
 
-            <v-list-item link class="u-sideMenu-home">
+            <v-list-item link class="u-sideMenu-home" @click="routePages('home')">
 
             <v-list-item-avatar>
                 <!-- <font-awesome-icon class="u-sideMenu-avatar-specialMargin"/> -->

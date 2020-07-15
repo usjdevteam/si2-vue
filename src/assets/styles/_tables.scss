@@ -8,10 +8,16 @@
 
 .u-table-primary{
     .v-data-table__wrapper table{
-        thead tr th{
-            line-height: 1rem;
-            font-size: 1rem;
-            font-weight: 600;
+        th:not(:last-child){
+            text-align: left;
+        }
+        th:last-child{
+            text-align: center;
+        }
+        thead tr th span{
+            line-height: 1.2rem;
+            font-size: 1.1rem;
+            font-weight: 500;
             color: $dark-blue !important;
         }
         tbody tr{
@@ -19,10 +25,17 @@
             
             td{
                 color: $light-gray !important;
-                line-height: 0.7rem;
-                font-size: 0.7rem;
+                line-height: 1.2rem;
+                font-size: 0.9rem;
                 text-align: left;
                 border-bottom-color: $white-gray !important;
+            }
+            a{
+                color: $light-gray !important;
+                line-height: 1.2rem;
+                font-size: 0.9rem;
+                text-align: left;
+                text-decoration: none;
             }
         }
 

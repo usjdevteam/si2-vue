@@ -63,10 +63,19 @@ p {
 .text-center{
   text-align: center !important;
 }
-
+.blue-color{
+  color: $blue !important;
+}
 .dark-blue-color{
   color: $dark-blue !important;
 }
 .lato{
   font-family: $type-1 !important;
+}
+.no-select{
+  user-select: none;
+}
+
+.line-height-2-p5-rem{
+  line-height: 2.5rem;
 }
