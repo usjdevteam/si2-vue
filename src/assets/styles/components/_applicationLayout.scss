@@ -11,3 +11,18 @@
         overflow-y: hidden !important;
     } 
 }
+
+
+.u-menu-active{
+    background:  $white-gray !important;
+    color: $blue;
+}
+
+
+.u-sideMenu-Panel{
+    .v-list-item--active{
+        opacity: 1 !important;
+        background: white !important;
+    }
+    
+}

@@ -8,7 +8,7 @@
       class="u-header"
     > 
 
-      <v-toolbar-title class="u-title-background-danger" style="padding-left: 0; padding-top: 0; margin-left: 1%; ">
+      <v-toolbar-title @click="goToHomePage" class="u-title-background-danger" style="padding-left: 0; padding-top: 0; margin-left: 1%; ">
           <span class="u-title-first">
           <p><span class="u-title-second">SI</span><span>2</span></p>
         </span>
@@ -46,7 +46,7 @@
         v-model="menu"
       >
         <template v-slot:activator="{ on }">
-          <v-btn icon v-on="on">
+          <v-btn id="btn-avatar" icon v-on="on">
                   <v-img
                       class="u-avatar"
                       :src="require('@/assets/images/avatar.png')"
@@ -187,7 +187,7 @@
           <v-expansion-panels class="u-sideMenu-Panel" :focusable="focusable" :hover="hover">
 
           <v-expansion-panel class="u-sideMenu-panelMargin">
-              <v-list-item link class="u-sideMenu-expansion">
+              <v-list-item link class="u-sideMenu-expansion" v-bind:class="{ 'text-bold u-menu-active' : isActiveTab() == 0 }">
               
 
               <v-list-item-avatar> 
@@ -209,8 +209,8 @@
         <v-divider></v-divider>
 
                 <!-- Institutions -->
-                <v-expansion-panel class="u-sideMenu-panelMargin">
-                    <v-expansion-panel-header class="u-sideMenu-expansion">
+                <v-expansion-panel class="u-sideMenu-panelMargin" >
+                    <v-expansion-panel-header class="u-sideMenu-expansion" v-bind:class="{ 'u-menu-active' : isActiveTab() == 1 || isActiveTab() == 2  }">
 
                         <v-list-item-avatar>
                             <v-img class="u-sideMenu-avatar-specialMargin"
@@ -229,7 +229,7 @@
                         
 
                         <v-list-item-content class= "u-content-subItems">
-                            <v-list-item-title class="u-sideMenu-subItem" @click="goTo('institutions')">All Institutions</v-list-item-title>
+                            <v-list-item-title class="u-sideMenu-subItem" v-bind:class="{ 'text-bold' : isActiveTab() == 1 }" @click="goTo('institutions')">All Institutions</v-list-item-title>
                         </v-list-item-content>
                         </v-list-item>
                     
@@ -239,7 +239,7 @@
                         >
                            
                         <v-list-item-content class= "u-content-subItems">
-                            <v-list-item-title class="u-sideMenu-subItem">Add New</v-list-item-title>
+                            <v-list-item-title class="u-sideMenu-subItem" v-bind:class="{ 'text-bold' : isActiveTab() == 2 }">Add New</v-list-item-title>
                         </v-list-item-content>
                         </v-list-item>
 
