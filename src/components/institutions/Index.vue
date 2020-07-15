@@ -5,7 +5,7 @@
                 <v-flex md12>
                     <div class="col-md-12">
                         <v-row>
-                            <h3 class="margin-right-2-p">Institution</h3>
+                            <h3 class="margin-right-2-p">Institutions</h3>
                             <v-btn class="ma-1 u-btn u-btn-outlined-primary">Add New</v-btn>
                         </v-row>
                     </div>
@@ -53,9 +53,9 @@
                                 <v-spacer></v-spacer>
                                 <div class="col-md-5 ">
                                     <div class="text-right">
-                                        <a class="dark-blue-color text-bold pagination-number" @click="gotoPage('prev')" >&#60;</a>
+                                        <a class="dark-blue-color text-bold pagination-number" @click="gotoPageInstutionTable('prev')" >&#60;</a>
                                         <span class="text-bold pagination-number" v-bind:class="{ 'u-page-active' : isActivePage(n)}" v-show="showPageNumber(n)" v-for="(n,index) in institutions.pagination.totalPages" :key="index" @click="paginate(n)">{{n}}</span>
-                                        <a class="dark-blue-color text-bold pagination-number" @click="gotoPage('next')">&#62;</a>
+                                        <a class="dark-blue-color text-bold pagination-number" @click="gotoPageInstutionTable('next')">&#62;</a>
                                     </div>
                                     
                                 </div>

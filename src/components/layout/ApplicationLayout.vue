@@ -249,7 +249,7 @@
                         
 
                         <v-list-item-content>
-                            <v-list-item-title class="u-sideMenu-subItem" @click="goTo('institutions')">All Institutions</v-list-item-title>
+                            <v-list-item-title class="u-sideMenu-subItem" @click="routePages('institutions')">All Institutions</v-list-item-title>
                         </v-list-item-content>
                         </v-list-item>
                     
@@ -259,7 +259,7 @@
                         >
                            
                         <v-list-item-content>
-                            <v-list-item-title class="u-sideMenu-subItem">Add New</v-list-item-title>
+                            <v-list-item-title class="u-sideMenu-subItem" @click="routePages('institutions/add')">Add New</v-list-item-title>
                         </v-list-item-content>
                         </v-list-item>
 

@@ -41,7 +41,7 @@ const routes = [
               },
         },
         {
-               path: 'institution/add',
+               path: 'institutions/add',
                name: 'AddInstitution',
                component: AddInstitution,
                meta: { 
@@ -49,7 +49,7 @@ const routes = [
                  },
         },
         {
-          path: 'viewinstitution/:institutionid',
+          path: 'institutions/view/:institutionid',
           name: 'ViewInstitution',
           props: true ,
           component: ViewInstitution,
@@ -68,7 +68,7 @@ const routes = [
       },
 
       {
-        path: 'institution/:institutionid',
+        path: 'institutions/edit/:institutionid',
         name: 'EditInstitution',
         props: true ,
         component: EditInstitution,

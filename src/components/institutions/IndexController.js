@@ -109,7 +109,10 @@ export default {
         
         return result;
       },
-      gotoPage(direction){
+      // switchPage(toPage){
+      //   switch (direction) {
+      // },
+      gotoPageInstutionTable(direction){
         var pNumber = this.pageInstitutionOption.pageNumber;
         switch (direction) {
           case 'prev':
