@@ -33,7 +33,11 @@ export default {
             queryString += ("pageNumber="+pageOption.pageNumber+"&");
            
         return new Promise((resolve, reject) => {
-            axios({ url: process.env.VUE_APP_SERVER_API + '/institutions'+ queryString, method: 'GET' })
+            axios({ url: process.env.VUE_APP_SERVER_API + '/institutions/'+ queryString, method: 'GET',
+                // headers: {
+                //     "Accept-version": "v1"
+                // }
+            })
                 .then(resp => {
                     commit('getInstitutions',resp)
                     resolve(resp)
@@ -49,7 +53,7 @@ export default {
     getInstitutionById({ commit }, institutionId ) {
                            
         return new Promise((resolve, reject) => {
-            axios({ url: process.env.VUE_APP_SERVER_API + '/institutions/'+ institutionId+"/v1", method: 'GET' })
+            axios({ url: process.env.VUE_APP_SERVER_API + '/institutions/'+ institutionId+"/", method: 'GET' })
                 .then(resp => {
                     commit('getInstitution',resp)
                     resolve(resp)

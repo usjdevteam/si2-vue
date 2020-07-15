@@ -8,3 +8,14 @@
     margin-left: 2%;
     cursor: pointer;
 }
+
+#all-institutions-table{
+    th:first-child{
+        width: 25% !important;
+    }
+}
+
+.u-page-active{
+    color : red !important;
+
+}

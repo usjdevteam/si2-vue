@@ -37,7 +37,9 @@
                             :loading="loading"
                             :items-per-page="institutions.pagination.pageSize"
                             class="u-table u-table-primary u-table-bordered-primary"
+                            id="all-institutions-table"
                         >
+                        <template #item.nameFr="{ item }"><a @click="viewInstitution(item.id)">{{item.nameFr}}</a></template>
                         <template #item.full_address="{ item }">{{item.address.streetFr}} - {{item.address.cityFr}} - {{item.address.countryFr}}</template>
                         <template #item.editRow="{ item }"> <font-awesome-icon class="u-cursor" icon="edit" size="lg" @click="viewInstitution(item.id)" /></template>
                         </v-data-table>
@@ -51,7 +53,9 @@
                                 <v-spacer></v-spacer>
                                 <div class="col-md-5 ">
                                     <div class="text-right">
-                                        <span class="dark-blue-color text-bold pagination-number" v-for="(n,index) in institutions.pagination.totalPages" :key="index" @click="paginate(n)">{{n}}</span>
+                                        <a class="dark-blue-color text-bold pagination-number" @click="gotoPage('prev')" >&#60;</a>
+                                        <span class="text-bold pagination-number" v-bind:class="{ 'u-page-active' : isActivePage(n)}" v-show="showPageNumber(n)" v-for="(n,index) in institutions.pagination.totalPages" :key="index" @click="paginate(n)">{{n}}</span>
+                                        <a class="dark-blue-color text-bold pagination-number" @click="gotoPage('next')">&#62;</a>
                                     </div>
                                     
                                 </div>
