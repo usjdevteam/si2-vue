@@ -190,12 +190,16 @@
               <v-list-item link class="u-sideMenu-expansion">
               
 
+
+            <v-list-item link class="u-sideMenu-home" @click="routePages('home')">
+
               <v-list-item-avatar> 
                   <!-- <font-awesome-icon class="u-sideMenu-avatar-specialMargin"/> -->
                       <v-img class="u-sideMenu-avatar-specialMargin"
                           :src="require('@/assets/images/home.png')"
                       ></v-img>
               </v-list-item-avatar>
+
 
               <v-list-item-title class="u-sideMenu-homeTitle">
                   Home</v-list-item-title>
@@ -226,10 +230,8 @@
                         <v-list-item
                         link
                         >
-                        
-
                         <v-list-item-content class= "u-content-subItems">
-                            <v-list-item-title class="u-sideMenu-subItem" @click="goTo('institutions')">All Institutions</v-list-item-title>
+                            <v-list-item-title class="u-sideMenu-subItem" @click="routePages('institutions')">All Institutions</v-list-item-title>
                         </v-list-item-content>
                         </v-list-item>
                     
@@ -239,7 +241,7 @@
                         >
                            
                         <v-list-item-content class= "u-content-subItems">
-                            <v-list-item-title class="u-sideMenu-subItem">Add New</v-list-item-title>
+                            <v-list-item-title class="u-sideMenu-subItem" @click="routePages('institutions/add')">Add New</v-list-item-title>
                         </v-list-item-content>
                         </v-list-item>
 

@@ -12,7 +12,6 @@
                 max-height="60"
                 contain
             ></v-img>
-            {{getRealDate}}
             <v-spacer></v-spacer>
             
             <v-btn class="ma-2 u-btn u-btn-outlined-primary u-btn-lg" large>Sign in</v-btn>
@@ -24,7 +23,7 @@
         <v-layout row>
             <v-flex md6 class="padding-top-5-p">
                 <div class="col-md-12">
-                    <h1 class='usj-color-primary'>Welcome to your digital Information System</h1>
+                    <h1 class='blue-color'>Welcome to your digital information system</h1>
                     <hr class="u-hr u-hr-red margin-top-2-p">
                 </div>
             <div class="col-md-12">
@@ -64,12 +63,12 @@
 
                     <v-alert
                         v-if="formLoginData.successLogin == false"
-                        class="width-80-p u-alert u-alert-danger-outlined"
+                        class="width-80-p u-alert u-alert-danger-outlined u-super-dense"
                         
                         dense
                         
                         >
-                        <strong>Incorrect email/password</strong>
+                        <label>Incorrect email/password</label>
                     </v-alert>
 
                     <div class="col-md-12 no-padding">
