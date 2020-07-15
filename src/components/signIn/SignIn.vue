@@ -24,7 +24,7 @@
         <v-layout row>
             <v-flex md6 class="padding-top-5-p">
                 <div class="col-md-12">
-                    <h1 class='usj-color-primary'>Welcome to your digital information system</h1>
+                    <h1 class='usj-color-primary'>Welcome to your digital Information System</h1>
                     <hr class="u-hr u-hr-red margin-top-2-p">
                 </div>
             <div class="col-md-12">
