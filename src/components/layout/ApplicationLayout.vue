@@ -3,60 +3,42 @@
   <v-app>
       <v-app-bar
       clipped-left
-      app color="#031250" class="u-header"
-    >
-      <div class="u-title-background-danger" @click="drawer = !drawer">
-        <p class="u-title-first">
-          SI<span class="u-title-second">2</span>
-        </p>
-      </div>
+      app
+      color="#031250"
+      class="u-header"
+    > 
+
+      <v-toolbar-title class="u-title-background-danger" style="padding-left: 0; padding-top: 0; margin-left: 1%; ">
+          <span class="u-title-first">
+          <p><span class="u-title-second">SI</span><span>2</span></p>
+        </span>
+      </v-toolbar-title>
 
       <v-spacer></v-spacer>
-
-      <span>
-          <v-text-field
-           
-            clearable
-            flat
-            solo
-            hide-details
-            hide-selected
-            prepend-inner-icon="search"
-            label="Search"
-            class="u-searchBar"
-          ></v-text-field>
-      </span>
-         <v-avatar >
-          <v-img class="u-question"
+        <div>
+            <v-text-field
+            
+                clearable
+                flat
+                solo
+                hide-details
+                hide-selected
+                prepend-inner-icon="search"
+                label="Search"
+                class="u-searchBar"
+            ></v-text-field>
+        </div>
+    
+    <div>
+     
+        <v-img class="u-question"
                   :src="require('@/assets/images/questionmark.png')"
           ></v-img>
-        </v-avatar>
-        <div>
-          <!-- <v-menu left bottom>
-              <template v-slot:activator="{ on, attrs }">
-                <v-btn icon v-bind="attrs" v-on="on">
-                  <v-avatar >
-                      <v-img
-                          class="u-avatar"
-                          :src="require('@/assets/images/avatar.png')"
-                      ></v-img>
-                    </v-avatar>
-                </v-btn>
-              </template>
+     
+    </div>
 
-              <v-list>
-                <v-list-item
-                  v-for="n in 5"
-                  :key="n"
-                  @click="() => {}"
-                >
-                <v-list-item-title>Option {{ n }}</v-list-item-title>
-              </v-list-item>
-            </v-list>
-          </v-menu> -->
-
-    <!-- GEO -->
-      <v-menu
+    <div>
+        <v-menu
         :close-on-content-click="false"
         :nudge-width="200"
         offset-y
@@ -64,14 +46,12 @@
         v-model="menu"
       >
         <template v-slot:activator="{ on }">
-          <v-btn icon v-on="on" >
-              <v-avatar>
+          <v-btn icon v-on="on">
                   <v-img
                       class="u-avatar"
                       :src="require('@/assets/images/avatar.png')"
                       @click="overlay = !overlay" 
                   ></v-img>
-                </v-avatar>
             </v-btn>
         </template>
   
@@ -176,15 +156,11 @@
           </v-card-actions> -->
         </v-card>
       </v-menu>
+    </div>
 
-     
+  </v-app-bar>
 
-
-        </div>
-
-    </v-app-bar>
-
-       <v-navigation-drawer
+<v-navigation-drawer
       v-model="drawer"
       app
       clipped
@@ -204,27 +180,35 @@
             </v-list-item-content>
         </v-list-item>
 
+        
         <v-divider></v-divider>
+   
+        
+          <v-expansion-panels class="u-sideMenu-Panel" :focusable="focusable" :hover="hover">
 
-      <v-list>
-          <v-expansion-panels class="u-sideMenu-Panel">
+          <v-expansion-panel class="u-sideMenu-panelMargin">
+              <v-list-item link class="u-sideMenu-expansion">
+              
+
 
             <v-list-item link class="u-sideMenu-home" @click="routePages('home')">
 
-            <v-list-item-avatar>
-                <!-- <font-awesome-icon class="u-sideMenu-avatar-specialMargin"/> -->
-                     <v-img class="u-sideMenu-avatar-specialMargin"
-                        :src="require('@/assets/images/home.png')"
-                     ></v-img>
-            </v-list-item-avatar>
+              <v-list-item-avatar> 
+                  <!-- <font-awesome-icon class="u-sideMenu-avatar-specialMargin"/> -->
+                      <v-img class="u-sideMenu-avatar-specialMargin"
+                          :src="require('@/assets/images/home.png')"
+                      ></v-img>
+              </v-list-item-avatar>
 
-            <v-list-item-title class="u-sideMenu-homeTitle">
-                Home</v-list-item-title>
 
-             <v-icon class="u-sideMenu-avatar-homeIcon">
-                mdi-chevron-right
-            </v-icon>
-        </v-list-item>
+              <v-list-item-title class="u-sideMenu-homeTitle">
+                  Home</v-list-item-title>
+
+              <v-icon class="u-sideMenu-avatar-homeIcon">
+                  mdi-chevron-right
+              </v-icon>
+            </v-list-item>
+        </v-expansion-panel>
 
         <v-divider></v-divider>
 
@@ -233,7 +217,7 @@
                     <v-expansion-panel-header class="u-sideMenu-expansion">
 
                         <v-list-item-avatar>
-                            <v-img contain class="u-sideMenu-avatar-specialMargin"
+                            <v-img class="u-sideMenu-avatar-specialMargin"
                                 :src="require('@/assets/images/institutions.png')"
                             ></v-img>
                         </v-list-item-avatar>
@@ -242,13 +226,11 @@
                         <v-list-item-title class="u-sideMenu-expansionTitle" >Institutions</v-list-item-title>
 
                     </v-expansion-panel-header>
-                    <v-expansion-panel-content>
+                    <v-expansion-panel-content class= "u-content-subItems">
                         <v-list-item
                         link
                         >
-                        
-
-                        <v-list-item-content>
+                        <v-list-item-content class= "u-content-subItems">
                             <v-list-item-title class="u-sideMenu-subItem" @click="routePages('institutions')">All Institutions</v-list-item-title>
                         </v-list-item-content>
                         </v-list-item>
@@ -258,7 +240,7 @@
                         link
                         >
                            
-                        <v-list-item-content>
+                        <v-list-item-content class= "u-content-subItems">
                             <v-list-item-title class="u-sideMenu-subItem" @click="routePages('institutions/add')">Add New</v-list-item-title>
                         </v-list-item-content>
                         </v-list-item>
@@ -282,13 +264,13 @@
                         <v-list-item-title class="u-sideMenu-expansionTitle">Programs</v-list-item-title>
 
                     </v-expansion-panel-header>
-                    <v-expansion-panel-content>
+                    <v-expansion-panel-content class= "u-content-subItems">
                         <v-list-item
                         link
                         >
                         
 
-                        <v-list-item-content>
+                        <v-list-item-content class= "u-content-subItems">
                             <v-list-item-title class="u-sideMenu-subItem">All Programs</v-list-item-title>
                         </v-list-item-content>
                         </v-list-item>
@@ -298,7 +280,7 @@
                         link
                         >
                            
-                        <v-list-item-content>
+                        <v-list-item-content class= "u-content-subItems">
                             <v-list-item-title class="u-sideMenu-subItem">Add New</v-list-item-title>
                         </v-list-item-content>
                         </v-list-item>
@@ -321,13 +303,13 @@
                         <v-list-item-title class="u-sideMenu-expansionTitle">Cohorts</v-list-item-title>
 
                     </v-expansion-panel-header>
-                    <v-expansion-panel-content>
+                    <v-expansion-panel-content class= "u-content-subItems">
                         <v-list-item
                         link
                         >
                         
 
-                        <v-list-item-content>
+                        <v-list-item-content class= "u-content-subItems">
                             <v-list-item-title class="u-sideMenu-subItem">All Cohorts</v-list-item-title>
                         </v-list-item-content>
                         </v-list-item>
@@ -337,7 +319,7 @@
                         link
                         >
                            
-                        <v-list-item-content>
+                        <v-list-item-content class= "u-content-subItems">
                             <v-list-item-title class="u-sideMenu-subItem">Add New</v-list-item-title>
                         </v-list-item-content>
                         </v-list-item>
@@ -346,7 +328,7 @@
                         link
                         >
                            
-                        <v-list-item-content>
+                        <v-list-item-content class= "u-content-subItems">
                             <v-list-item-title class="u-sideMenu-subItem">Cohort Courses</v-list-item-title>
                         </v-list-item-content>
                         </v-list-item>
@@ -355,7 +337,7 @@
                         link
                         >
                            
-                        <v-list-item-content>
+                        <v-list-item-content class= "u-content-subItems">
                             <v-list-item-title class="u-sideMenu-subItem">Cohort Subscribers</v-list-item-title>
                         </v-list-item-content>
                         </v-list-item>
@@ -378,13 +360,13 @@
                         <v-list-item-title class="u-sideMenu-expansionTitle">Courses</v-list-item-title>
 
                     </v-expansion-panel-header>
-                    <v-expansion-panel-content>
+                    <v-expansion-panel-content class= "u-content-subItems">
                         <v-list-item
                         link
                         >
                         
 
-                        <v-list-item-content>
+                        <v-list-item-content class= "u-content-subItems">
                             <v-list-item-title class="u-sideMenu-subItem">All Courses</v-list-item-title>
                         </v-list-item-content>
                         </v-list-item>
@@ -394,7 +376,7 @@
                         link
                         >
                            
-                        <v-list-item-content>
+                        <v-list-item-content class= "u-content-subItems">
                             <v-list-item-title class="u-sideMenu-subItem">Add New</v-list-item-title>
                         </v-list-item-content>
                         </v-list-item>
@@ -403,7 +385,7 @@
                         link
                         >
                            
-                        <v-list-item-content>
+                        <v-list-item-content class= "u-content-subItems">
                             <v-list-item-title class="u-sideMenu-subItem">Course Subscribers</v-list-item-title>
                         </v-list-item-content>
                         </v-list-item>
@@ -426,13 +408,13 @@
                         <v-list-item-title class="u-sideMenu-expansionTitle">Documents</v-list-item-title>
 
                     </v-expansion-panel-header>
-                    <v-expansion-panel-content>
+                    <v-expansion-panel-content class= "u-content-subItems">
                         <v-list-item
                         link
                         >
                         
 
-                        <v-list-item-content>
+                        <v-list-item-content class= "u-content-subItems">
                             <v-list-item-title class="u-sideMenu-subItem">All Documents</v-list-item-title>
                         </v-list-item-content>
                         </v-list-item>
@@ -442,7 +424,7 @@
                         link
                         >
                            
-                        <v-list-item-content>
+                        <v-list-item-content class= "u-content-subItems">
                             <v-list-item-title class="u-sideMenu-subItem">Add New</v-list-item-title>
                         </v-list-item-content>
                         </v-list-item>
@@ -466,15 +448,15 @@
                         <v-list-item-title class="u-sideMenu-expansionTitle">Users</v-list-item-title>
 
                     </v-expansion-panel-header>
-                    <v-expansion-panel-content>
+                    <v-expansion-panel-content class= "u-content-subItems">
                         <v-list-item
                         link
                         >
                         
 
-                        <v-list-item-content>
+                        <v-list-item-content class= "u-content-subItems">
                             <v-list-item-title class="u-sideMenu-subItem">All Users</v-list-item-title>
-                        </v-list-item-content>
+                        </v-list-item-content >
                         </v-list-item>
                     
 
@@ -482,7 +464,7 @@
                         link
                         >
                            
-                        <v-list-item-content>
+                        <v-list-item-content class= "u-content-subItems">
                             <v-list-item-title class="u-sideMenu-subItem">Add New</v-list-item-title>
                         </v-list-item-content>
                         </v-list-item>
@@ -506,13 +488,13 @@
                         <v-list-item-title class="u-sideMenu-expansionTitle">SI2 Admin</v-list-item-title>
 
                     </v-expansion-panel-header>
-                    <v-expansion-panel-content>
+                    <v-expansion-panel-content class= "u-content-subItems">
                         <v-list-item
                         link
                         >
                         
 
-                        <v-list-item-content>
+                        <v-list-item-content class= "u-content-subItems">
                             <v-list-item-title class="u-sideMenu-subItem">Manage Roles</v-list-item-title>
                         </v-list-item-content>
                         </v-list-item>
@@ -522,7 +504,7 @@
                         link
                         >
                            
-                        <v-list-item-content>
+                        <v-list-item-content class= "u-content-subItems">
                             <v-list-item-title class="u-sideMenu-subItem">Manage ProgramLevels</v-list-item-title>
                         </v-list-item-content>
                         </v-list-item>
@@ -530,7 +512,7 @@
                     </v-expansion-panel-content>
                     </v-expansion-panel>
         </v-expansion-panels>
-      </v-list>
+    
 
 
     </v-list-item-group>
@@ -540,8 +522,14 @@
 
     </v-navigation-drawer>
 
+
     <v-main>
+        
       <div col-md-12>
+        <div>
+          <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="u-icon-nav" v-if="!drawer" style="margin-left: 2%; "></v-app-bar-nav-icon>
+        </div>
+
         <router-view></router-view>
       </div>
 

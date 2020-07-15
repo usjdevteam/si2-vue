@@ -1,20 +1,20 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import store from '../store/index.js'
-
+ 
 import SignIn from '../components/signIn/SignIn.vue';
 import Application from '../components/layout/ApplicationLayout.vue'
 import Home from '../components/home/Home.vue'
-
+ 
 import AddInstitution from '../components/institutions/AddInstitution.vue'
 import InstitutionIndex from '../components/institutions/Index.vue'
 import ViewInstitution from '../components/institutions/ViewInstitution.vue'
 import EditInstitution from '../components/institutions/EditInstitution.vue'
 
 
-
+ 
 Vue.use(VueRouter);
-
+ 
 const routes = [
   {
     path: '/',
@@ -31,7 +31,7 @@ const routes = [
         requiresAuth: true
       },
     children : [
-
+ 
         {
             path: 'home',
             name: 'Home',
@@ -64,9 +64,9 @@ const routes = [
        meta: { 
           requiresAuth: true
        },
-
+ 
       },
-
+ 
       {
         path: 'institutions/edit/:institutionid',
         name: 'EditInstitution',
@@ -76,21 +76,19 @@ const routes = [
             requiresAuth: true
           },
       } 
-
+ 
     ]
   }
 ];
-
+ 
 const router = new VueRouter({
     mode: 'history',
     base: process.env.BASE_URL,
     routes,
 });
-
-
+ 
 router.beforeEach((to, from, next) => {
-
-
+ 
   if (to.matched.length > 0){ // CHECK IF THE LINK HAS A COMPONENT
     
     if(to.matched.some(record => record.meta.requiresAuth)) {
@@ -105,7 +103,7 @@ router.beforeEach((to, from, next) => {
   }else{
     next('/') 
   }
-
+ 
 })
-
+ 
 export default router;

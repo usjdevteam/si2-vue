@@ -65,11 +65,12 @@ export default {
                 })
         })
     },
-        addInstitution({ commit }, institutionRecord) {
+
+    addInstitution({ commit }, institutionRecord) {
 
         return new Promise((resolve, reject) => {
 
-             axios({ "url": process.env.VUE_APP_SERVER_API + "/institutions", method: "POST" , data: institutionRecord/*dataBody*/
+             axios({ "url": process.env.VUE_APP_SERVER_API + "/institutions", method: "POST" , data: institutionRecord
                 })    
                 .then(resp => {
                     
