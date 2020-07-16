@@ -187,11 +187,9 @@
           <v-expansion-panels class="u-sideMenu-Panel" :focusable="focusable" :hover="hover">
 
           <v-expansion-panel class="u-sideMenu-panelMargin">
-              <v-list-item link class="u-sideMenu-expansion" v-bind:class="{ 'text-bold u-menu-active' : isActiveTab() == 0 }">
-              
-
-
-            <v-list-item link class="u-sideMenu-home" @click="routePages('home')">
+              <v-list-item link class="u-sideMenu-expansion" v-bind:class="{ 'text-bold u-menu-active' : isActiveTab() == 0 }"
+              @click="routePages('home')">
+            
 
               <v-list-item-avatar> 
                   <!-- <font-awesome-icon class="u-sideMenu-avatar-specialMargin"/> -->
